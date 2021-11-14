@@ -8,3 +8,8 @@ C:\Users\Léo\source\repos\clienteC\clienteC\obj\Debug\clienteC.csproj.GenerateR
 C:\Users\Léo\source\repos\clienteC\clienteC\obj\Debug\clienteC.csproj.CoreCompileInputs.cache
 C:\Users\Léo\source\repos\clienteC\clienteC\obj\Debug\clienteC.exe
 C:\Users\Léo\source\repos\clienteC\clienteC\obj\Debug\clienteC.pdb
+C:\Users\Léo\source\repos\clienteC\clienteC\obj\Debug\UserControl1.g.cs
+C:\Users\Léo\source\repos\clienteC\clienteC\obj\Debug\clienteC_MarkupCompile.cache
+C:\Users\Léo\source\repos\clienteC\clienteC\obj\Debug\clienteC_MarkupCompile.lref
+C:\Users\Léo\source\repos\clienteC\clienteC\obj\Debug\UserControl1.baml
+C:\Users\Léo\source\repos\clienteC\clienteC\obj\Debug\clienteC.g.resources

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace clienteC
 {
@@ -16,6 +17,11 @@ namespace clienteC
         {
             InitializeComponent();
         }
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=cliente ;User Id=sa ;Password = 12345; ");
+        
+        SqlCommand cm = new SqlCommand();
+
+        SqlDataReader dt;
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
