@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\
+C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Release\
 clienteC
 none
 false
-DEBUG;TRACE
+TRACE
 
 1-1974910238
 
@@ -16,5 +16,5 @@ DEBUG;TRACE
 1894377673
 frmFuncionario.xaml;
 
-False
+True
 
