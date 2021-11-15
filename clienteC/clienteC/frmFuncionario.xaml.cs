@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Data.SqlClient;
 
 namespace clienteC
 {
@@ -13,6 +14,14 @@ namespace clienteC
         {
             InitializeComponent();
         }
+
+        //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
+
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=cliente ;User Id=sa ;Password = 12345; ");
+
+        SqlDataReader dt;
+
+
 
         private void DesabilitaCampos()
         {
@@ -49,6 +58,7 @@ namespace clienteC
             txtTelefone.Clear();
             TxtCpf.Clear();
             TxtEndereco.Clear();
+            txtNome.Focus();
 
         }
 
@@ -134,6 +144,42 @@ namespace clienteC
             {
                 MessageBox.Show("O número de Telefone está errado, Porfavor informar os 14 digitos. ", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtTelefone.Focus();
+            }
+            else
+            {
+                try
+                {
+                    string nome = txtNome.Text;
+                    string numero = txtTelefone.Text;
+                    string cpf = TxtCpf.Text;
+                    string endereco = TxtEndereco.Text;
+
+                    string sql = "insert into tbl_cliente(ds_nome,ds_numero,ds_cpf,ds_endereco)values(@nome,@numero,@cpf,@endeco)";
+
+                    SqlCommand cm = new SqlCommand(sql, cn);
+
+                    cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
+                    cm.Parameters.Add("@numero", System.Data.SqlDbType.VarChar).Value = numero;
+                    cm.Parameters.Add("@cpf", System.Data.SqlDbType.VarChar).Value = cpf;
+                    cm.Parameters.Add("@endereco", System.Data.SqlDbType.VarChar).Value = endereco;
+
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    LimparCampos();
+                    MessageBox.Show("Os Dados Foram gravados com sucesso. ", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                    cn.Close();
+                }
+
+                finally
+                {
+                    cn.Close();
+                }
+                
             }
         }
     }

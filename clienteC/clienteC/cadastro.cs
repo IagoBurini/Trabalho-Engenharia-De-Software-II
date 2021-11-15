@@ -17,6 +17,9 @@ namespace clienteC
         {
             InitializeComponent();
         }
+
+        //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
+
         SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=cliente ;User Id=sa ;Password = 12345; ");
         
         SqlCommand cm = new SqlCommand();
