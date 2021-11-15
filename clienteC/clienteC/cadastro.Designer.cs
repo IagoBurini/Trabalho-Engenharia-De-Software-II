@@ -36,7 +36,7 @@ namespace clienteC
             this.btnFechar = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-            this.frmFuncionario = new clienteC.frmFuncionario();
+            this.frmfuncionario = new clienteC.frmFuncionario();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.btnFechar.SuspendLayout();
@@ -104,7 +104,7 @@ namespace clienteC
             this.elementHost1.Size = new System.Drawing.Size(800, 600);
             this.elementHost1.TabIndex = 1;
             this.elementHost1.Text = "elementHost1";
-            this.elementHost1.Child = this.frmFuncionario;
+            this.elementHost1.Child = this.frmfuncionario;
             // 
             // cadastro
             // 
@@ -131,7 +131,7 @@ namespace clienteC
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
-        private frmFuncionario frmFuncionario;
+        private frmFuncionario frmfuncionario;
     }
 }
 
