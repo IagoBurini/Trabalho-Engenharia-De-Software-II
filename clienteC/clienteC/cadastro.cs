@@ -47,5 +47,10 @@ namespace clienteC
         {
 
         }
+
+        private void btnFechar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
