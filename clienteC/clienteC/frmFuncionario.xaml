@@ -19,14 +19,14 @@
                 <TranslateTransform X="848" Y="595"/>
             </TransformGroup>
         </Grid.RenderTransform>
-        <Label x:Name="Nome" Content="Nome:" HorizontalAlignment="Left" Margin="-695,-437,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="Endereco" Content="Endereço:" HorizontalAlignment="Left" Margin="-715,-308,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="Telefone" Content="Telefone:" HorizontalAlignment="Left" Margin="-715,-398,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" RenderTransformOrigin="0.42,0.162"/>
-        <Label x:Name="Cpf" Content="CPF:" HorizontalAlignment="Left" Margin="-675,-359,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="-612,-426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged_3"/>
-        <TextBox x:Name="txtTelefone" HorizontalAlignment="Left" Height="23" Margin="-612,-387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256"/>
-        <TextBox x:Name="TxtCpf" HorizontalAlignment="Left" Height="23" Margin="-612,-347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="TxtEndereco" HorizontalAlignment="Left" Height="52" Margin="-612,-301,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged_1"/>
+        <Label x:Name="Nome" Content="Nome:" HorizontalAlignment="Left" Margin="-676,-457,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="Endereco" Content="Endereço:" HorizontalAlignment="Left" Margin="-696,-328,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="Telefone" Content="Telefone:" HorizontalAlignment="Left" Margin="-696,-418,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" RenderTransformOrigin="0.42,0.162"/>
+        <Label x:Name="Cpf" Content="CPF:" HorizontalAlignment="Left" Margin="-656,-379,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="-593,-446,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged_3"/>
+        <TextBox x:Name="txtTelefone" HorizontalAlignment="Left" Height="23" Margin="-593,-407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" MaxLength="15"/>
+        <TextBox x:Name="TxtCpf" HorizontalAlignment="Left" Height="23" Margin="-593,-367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged" MaxLength="14"/>
+        <TextBox x:Name="TxtEndereco" HorizontalAlignment="Left" Height="52" Margin="-593,-321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged_1"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="108" Margin="-848,-596,0,0" VerticalAlignment="Top" Width="805" Background="#FF9E0A0A">
             <Label Content="Cliente&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="258" Height="78" FontFamily="Segoe UI Semibold" FontSize="48" Margin="313,23,0,0" Background="{x:Null}" Foreground="White"/>
         </Border>
@@ -38,9 +38,10 @@
         </Border>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="-680,-163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="423" TextChanged="TextBox_TextChanged_2"/>
         <Label Content="Digite o nome do Cliente:" HorizontalAlignment="Left" Margin="-716,-185,0,0" VerticalAlignment="Top"/>
-        <Label Content="Codigo:" HorizontalAlignment="Left" Margin="-696,-468,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.51,0.577" FontWeight="SemiBold" Visibility="Hidden"/>
-        <Label x:Name="LblCodigo" Content="" HorizontalAlignment="Left" Margin="-645,-468,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Visibility="Hidden"/>
+        <Label Content="Codigo:" HorizontalAlignment="Left" Margin="-593,-477,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.51,0.577" FontWeight="SemiBold" Visibility="Hidden" />
+        <Label x:Name="LblCodigo" Content="" HorizontalAlignment="Left" Margin="-542,-477,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Visibility="Hidden" />
         <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="-220,-280,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btnCancelar_Click"/>
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="-593,-251,0,0" VerticalAlignment="Top" Width="75" Click="btnSalvar_Click"/>
 
     </Grid>
 </UserControl>

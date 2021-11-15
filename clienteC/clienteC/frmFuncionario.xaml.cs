@@ -25,6 +25,7 @@ namespace clienteC
             btnRemover.IsEnabled = false;
             btnNovo.IsEnabled = true;
             btnCancelar.IsEnabled = false;
+            btnSalvar.IsEnabled = false;
         }
 
         private void HabilitaCampos()
@@ -37,6 +38,7 @@ namespace clienteC
             btnNovo.IsEnabled = true;
             btnRemover.IsEnabled = true;
             btnCancelar.IsEnabled = true;
+            btnSalvar.IsEnabled = true;
             btnNovo.IsEnabled = false;
             txtNome.Focus();
         }
@@ -99,6 +101,40 @@ namespace clienteC
         private void frmFuncionario_load(object sender, EventArgs e)
         {
             DesabilitaCampos();
+        }
+
+        private void btnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNome.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo nome. ", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtNome.Focus();
+            }
+            else if (txtTelefone.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo numéro. ", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtTelefone.Focus();
+            }
+            else if (TxtCpf.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo CPF. ", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                TxtCpf.Focus();
+            }
+            else if (TxtEndereco.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo endereço. ", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                TxtEndereco.Focus();
+            }
+            else if (TxtCpf.Text.Length < 14)
+            {
+                MessageBox.Show("O CPF está errado, Porfavor informar os 14 digitos. ", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                TxtCpf.Focus();
+            }
+            else if (txtTelefone.Text.Length < 14)
+            {
+                MessageBox.Show("O número de Telefone está errado, Porfavor informar os 14 digitos. ", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtTelefone.Focus();
+            }
         }
     }
 }
