@@ -17,7 +17,7 @@ namespace clienteC
 
         //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
 
         SqlDataReader dt;
 
@@ -130,7 +130,11 @@ namespace clienteC
                 MessageBox.Show("O número de Telefone está errado, Porfavor informar os 14 digitos. ", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtTelefone.Focus();
             }
-
+            else if (TxtCpf.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo CPF. ", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                TxtCpf.Focus();
+            }
             else if (TxtCpf.Text.Length < 12)
             {
                 MessageBox.Show("O CPF está errado, Porfavor informar os 12 digitos. ", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -146,13 +150,13 @@ namespace clienteC
                     string cpf = TxtCpf.Text;
                     string endereco = TxtEndereco.Text;
 
-                    string sql = "insert into cliente(nome,endereco,telefone,cpf)values(@nome,@endereco,@telefone,@cpf)";
+                    string sql = "insert into cliente(nome,telefone,cpf,endereco)values(@nome,@telefone,@cpf,@endereco)";
 
                     SqlCommand cm = new SqlCommand(sql, cn);
                     cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
-                    cm.Parameters.Add("@endereco", System.Data.SqlDbType.VarChar).Value = endereco;
                     cm.Parameters.Add("@telefone", System.Data.SqlDbType.VarChar).Value = telefone;
                     cm.Parameters.Add("@cpf", System.Data.SqlDbType.VarChar).Value = cpf;
+                    cm.Parameters.Add("@endereco", System.Data.SqlDbType.VarChar).Value = endereco;
 
                     cn.Open();
                     cm.ExecuteNonQuery();

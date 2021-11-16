@@ -23,10 +23,10 @@
         <Label x:Name="Endereco" Content="Endereço:" HorizontalAlignment="Left" Margin="-696,-328,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <Label x:Name="Telefone" Content="Telefone:" HorizontalAlignment="Left" Margin="-696,-418,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" RenderTransformOrigin="0.42,0.162"/>
         <Label x:Name="Cpf" Content="CPF:" HorizontalAlignment="Left" Margin="-656,-379,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="-593,-446,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged_3"/>
-        <TextBox x:Name="txtTelefone" HorizontalAlignment="Left" Height="23" Margin="-593,-407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" MaxLength="15"/>
-        <TextBox x:Name="TxtCpf" HorizontalAlignment="Left" Height="23" Margin="-593,-367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged" MaxLength="14"/>
-        <TextBox x:Name="TxtEndereco" HorizontalAlignment="Left" Height="52" Margin="-593,-321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="-593,-446,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged_3" MaxLength="40"/>
+        <TextBox x:Name="txtTelefone" HorizontalAlignment="Left" Height="23" Margin="-593,-407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" MaxLength="14"/>
+        <TextBox x:Name="TxtCpf" HorizontalAlignment="Left" Height="23" Margin="-593,-367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged" MaxLength="13"/>
+        <TextBox x:Name="TxtEndereco" HorizontalAlignment="Left" Height="52" Margin="-593,-321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="TextBox_TextChanged_1" MaxLength="100"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="108" Margin="-848,-596,0,0" VerticalAlignment="Top" Width="805" Background="#FF9E0A0A">
             <Label Content="Cliente&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="258" Height="78" FontFamily="Segoe UI Semibold" FontSize="48" Margin="313,23,0,0" Background="{x:Null}" Foreground="White"/>
         </Border>
