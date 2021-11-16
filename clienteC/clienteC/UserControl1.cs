@@ -165,7 +165,7 @@ namespace clienteC
                     cn.Open();
                     cm.ExecuteNonQuery();
                     LimparCampos();
-                    MessageBox.Show("Os Dados Foram gravados com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 catch (Exception error)
@@ -284,7 +284,7 @@ namespace clienteC
                     cm.ExecuteNonQuery();
                     cm.Parameters.Clear();
                     LimparCampos();
-                    MessageBox.Show("Os Dados Foram alterados com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Os dados foram alterados com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 catch (Exception error)
@@ -298,6 +298,70 @@ namespace clienteC
                     cn.Close();
                 }
 
+            }
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            if (txtNome.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo nome. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNome.Focus();
+            }
+            else if (TxtEndereco.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo endereço. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtEndereco.Focus();
+            }
+            else if (txtTelefone.Text.Length < 14)
+            {
+                MessageBox.Show("O número de Telefone está errado, Porfavor informar os 14 digitos. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTelefone.Focus();
+            }
+            else if (TxtCpf.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo CPF. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCpf.Focus();
+            }
+            else if (TxtCpf.Text.Length < 12)
+            {
+                MessageBox.Show("O CPF está errado, Porfavor informar os 12 digitos. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCpf.Focus();
+            }
+            else
+            {
+                DialogResult exclusao = MessageBox.Show("Você tem certeza que deseja remover esse registro?", "Exclusão de Registro", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+                if (exclusao == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        string cpf = TxtCpf.Text;
+                        cn.Open();
+                        string strSql = "delete from cliente where cpf=@cpf";
+                        cm.CommandText = strSql;
+                        cm.Connection = cn;
+                        cm.Parameters.Add("@cpf", System.Data.SqlDbType.VarChar).Value = cpf;
+
+                        
+                        cm.ExecuteNonQuery();
+                        cm.Parameters.Clear();
+                        LimparCampos();
+                        MessageBox.Show("Os dados foram removidos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show(erro.Message);
+                        cn.Close();
+                    }
+                    finally
+                    {
+                        cn.Close();
+                    }
+                }
             }
         }
     }
