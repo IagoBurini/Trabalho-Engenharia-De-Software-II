@@ -21,7 +21,7 @@ namespace clienteC
 
         //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
 
         SqlCommand cm = new SqlCommand();
 
@@ -87,6 +87,18 @@ namespace clienteC
         private void UserControl1_Load(object sender, EventArgs e)
         {
             DesabilitaCampos();
+
+            cn.Open();
+            cm.CommandText = "select * from cliente";
+            cm.Connection = cn;
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            DataTable dt = new DataTable();
+
+            da.SelectCommand = cm;
+            da.Fill(dt);
+            DgvFunc.DataSource = dt;
+            cn.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -213,7 +225,26 @@ namespace clienteC
                 }
                 else
                 {
-                    DgvFunc.DataSource = null;
+                    try 
+                    {
+                        cn.Open();
+                        cm.CommandText = "select * from cliente";
+                        cm.Connection = cn;
+                        SqlDataAdapter da = new SqlDataAdapter();
+
+                        DataTable dt = new DataTable();
+
+                        da.SelectCommand = cm;
+                        da.Fill(dt);
+                        DgvFunc.DataSource = dt;
+                        cn.Close();
+                        //DgvFunc.DataSource = null;
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message);
+                    }
+
                 }
             }
         }
