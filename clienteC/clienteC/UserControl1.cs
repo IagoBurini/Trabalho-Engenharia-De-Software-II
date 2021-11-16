@@ -57,7 +57,7 @@ namespace clienteC
             btnNovo.Enabled = false;
             txtNome.Focus();
             txtBusca.Text = "";
-            DgvFunc.DataSource = null;
+            //DgvFunc.DataSource = null;
         }
 
         private void LimparCampos()
@@ -87,18 +87,30 @@ namespace clienteC
         private void UserControl1_Load(object sender, EventArgs e)
         {
             DesabilitaCampos();
+            MostrarTodosClientes();
+        }
 
-            cn.Open();
-            cm.CommandText = "select * from cliente";
-            cm.Connection = cn;
-            SqlDataAdapter da = new SqlDataAdapter();
+        private void MostrarTodosClientes()
+        {
+            try
+            {
+                cn.Open();
+                cm.CommandText = "select * from cliente";
+                cm.Connection = cn;
+                SqlDataAdapter da = new SqlDataAdapter();
 
-            DataTable dt = new DataTable();
+                DataTable dt = new DataTable();
 
-            da.SelectCommand = cm;
-            da.Fill(dt);
-            DgvFunc.DataSource = dt;
-            cn.Close();
+                da.SelectCommand = cm;
+                da.Fill(dt);
+                DgvFunc.DataSource = dt;
+                cn.Close();
+                //DgvFunc.DataSource = null;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -189,6 +201,7 @@ namespace clienteC
                 finally
                 {
                     cn.Close();
+                    MostrarTodosClientes();
                 }
 
             }
@@ -225,26 +238,7 @@ namespace clienteC
                 }
                 else
                 {
-                    try 
-                    {
-                        cn.Open();
-                        cm.CommandText = "select * from cliente";
-                        cm.Connection = cn;
-                        SqlDataAdapter da = new SqlDataAdapter();
-
-                        DataTable dt = new DataTable();
-
-                        da.SelectCommand = cm;
-                        da.Fill(dt);
-                        DgvFunc.DataSource = dt;
-                        cn.Close();
-                        //DgvFunc.DataSource = null;
-                    }
-                    catch (Exception error)
-                    {
-                        MessageBox.Show(error.Message);
-                    }
-
+                    MostrarTodosClientes();
                 }
             }
         }
@@ -252,8 +246,8 @@ namespace clienteC
 
         private void carregaCliente()
         {
-            txtNome.Text = DgvFunc.SelectedRows[0].Cells[0].Value.ToString();
-            TxtEndereco.Text= DgvFunc.SelectedRows[0].Cells[1].Value.ToString();
+            txtNome.Text = DgvFunc.SelectedRows[0].Cells[1].Value.ToString();
+            TxtEndereco.Text= DgvFunc.SelectedRows[0].Cells[4].Value.ToString();
             txtTelefone.Text = DgvFunc.SelectedRows[0].Cells[2].Value.ToString();
             TxtCpf.Text= DgvFunc.SelectedRows[0].Cells[3].Value.ToString();
             manipularDados();
@@ -327,6 +321,7 @@ namespace clienteC
                 finally
                 {
                     cn.Close();
+                    MostrarTodosClientes();
                 }
 
             }
@@ -391,6 +386,7 @@ namespace clienteC
                     finally
                     {
                         cn.Close();
+                        MostrarTodosClientes();
                     }
                 }
             }
