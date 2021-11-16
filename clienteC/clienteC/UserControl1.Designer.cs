@@ -58,10 +58,13 @@ namespace clienteC
             // 
             this.DgvFunc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvFunc.Location = new System.Drawing.Point(195, 473);
+            this.DgvFunc.MultiSelect = false;
             this.DgvFunc.Name = "DgvFunc";
+            this.DgvFunc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvFunc.Size = new System.Drawing.Size(530, 124);
             this.DgvFunc.TabIndex = 0;
             this.DgvFunc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvFunc_CellContentClick);
+            this.DgvFunc.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DgvFunc_MouseDoubleClick);
             // 
             // btnNovo
             // 
@@ -186,8 +189,9 @@ namespace clienteC
             // 
             this.TxtEndereco.Location = new System.Drawing.Point(300, 265);
             this.TxtEndereco.MaxLength = 100;
+            this.TxtEndereco.Multiline = true;
             this.TxtEndereco.Name = "TxtEndereco";
-            this.TxtEndereco.Size = new System.Drawing.Size(222, 20);
+            this.TxtEndereco.Size = new System.Drawing.Size(222, 60);
             this.TxtEndereco.TabIndex = 13;
             // 
             // txtNome

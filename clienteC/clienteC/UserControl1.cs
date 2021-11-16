@@ -21,7 +21,7 @@ namespace clienteC
 
         //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
 
         SqlCommand cm = new SqlCommand();
 
@@ -56,6 +56,8 @@ namespace clienteC
             btnSalvar.Enabled = true;
             btnNovo.Enabled = false;
             txtNome.Focus();
+            txtBusca.Text = "";
+            DgvFunc.DataSource = null;
         }
 
         private void LimparCampos()
@@ -65,6 +67,20 @@ namespace clienteC
             TxtCpf.Clear();
             TxtEndereco.Clear();
             txtNome.Focus();
+
+        }
+
+        private void manipularDados()
+        {
+            btnEditar.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnRemover.Enabled = true;
+            btnNovo.Enabled = false;
+            btnSalvar.Enabled = false;
+            txtNome.Enabled = true;
+            txtTelefone.Enabled = true;
+            TxtCpf.Enabled = true;
+            TxtEndereco.Enabled = true;
 
         }
 
@@ -200,6 +216,20 @@ namespace clienteC
                     DgvFunc.DataSource = null;
                 }
             }
+        }
+
+
+        private void carregaCliente()
+        {
+            txtNome.Text = DgvFunc.SelectedRows[0].Cells[0].Value.ToString();
+            TxtEndereco.Text= DgvFunc.SelectedRows[0].Cells[1].Value.ToString();
+            txtTelefone.Text = DgvFunc.SelectedRows[0].Cells[2].Value.ToString();
+            TxtCpf.Text= DgvFunc.SelectedRows[0].Cells[3].Value.ToString();
+            manipularDados();
+        }
+        private void DgvFunc_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            carregaCliente();
         }
     }
 }
