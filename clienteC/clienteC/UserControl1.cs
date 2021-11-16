@@ -21,7 +21,7 @@ namespace clienteC
 
         //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
 
         SqlCommand cm = new SqlCommand();
 
@@ -56,6 +56,8 @@ namespace clienteC
             btnSalvar.Enabled = true;
             btnNovo.Enabled = false;
             txtNome.Focus();
+            txtBusca.Text = "";
+            DgvFunc.DataSource = null;
         }
 
         private void LimparCampos()
@@ -65,6 +67,20 @@ namespace clienteC
             TxtCpf.Clear();
             TxtEndereco.Clear();
             txtNome.Focus();
+
+        }
+
+        private void manipularDados()
+        {
+            btnEditar.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnRemover.Enabled = true;
+            btnNovo.Enabled = false;
+            btnSalvar.Enabled = false;
+            txtNome.Enabled = true;
+            txtTelefone.Enabled = true;
+            TxtCpf.Enabled = true;
+            TxtEndereco.Enabled = true;
 
         }
 
@@ -149,7 +165,7 @@ namespace clienteC
                     cn.Open();
                     cm.ExecuteNonQuery();
                     LimparCampos();
-                    MessageBox.Show("Os Dados Foram gravados com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 catch (Exception error)
@@ -198,6 +214,153 @@ namespace clienteC
                 else
                 {
                     DgvFunc.DataSource = null;
+                }
+            }
+        }
+
+
+        private void carregaCliente()
+        {
+            txtNome.Text = DgvFunc.SelectedRows[0].Cells[0].Value.ToString();
+            TxtEndereco.Text= DgvFunc.SelectedRows[0].Cells[1].Value.ToString();
+            txtTelefone.Text = DgvFunc.SelectedRows[0].Cells[2].Value.ToString();
+            TxtCpf.Text= DgvFunc.SelectedRows[0].Cells[3].Value.ToString();
+            manipularDados();
+        }
+        private void DgvFunc_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            carregaCliente();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (txtNome.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo nome. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNome.Focus();
+            }
+            else if (TxtEndereco.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo endereço. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtEndereco.Focus();
+            }
+            else if (txtTelefone.Text.Length < 14)
+            {
+                MessageBox.Show("O número de Telefone está errado, Porfavor informar os 14 digitos. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTelefone.Focus();
+            }
+            else if (TxtCpf.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo CPF. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCpf.Focus();
+            }
+            else if (TxtCpf.Text.Length < 12)
+            {
+                MessageBox.Show("O CPF está errado, Porfavor informar os 12 digitos. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCpf.Focus();
+            }
+
+            else
+            {
+                try
+                {
+                    string nome = txtNome.Text;
+                    string telefone = txtTelefone.Text;
+                    string cpf = TxtCpf.Text;
+                    string endereco = TxtEndereco.Text;
+                    
+                    string strSql = "update cliente set nome=@nome, telefone=@telefone, cpf=@cpf, endereco=@endereco where cpf=@cpf ";
+
+                    cm.CommandText = strSql;
+                    cm.Connection = cn;
+
+                    cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
+                    cm.Parameters.Add("@telefone", System.Data.SqlDbType.VarChar).Value = telefone;
+                    cm.Parameters.Add("@cpf", System.Data.SqlDbType.VarChar).Value = cpf;
+                    cm.Parameters.Add("@endereco", System.Data.SqlDbType.VarChar).Value = endereco;
+                   
+
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    cm.Parameters.Clear();
+                    LimparCampos();
+                    MessageBox.Show("Os dados foram alterados com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                    cn.Close();
+                }
+
+                finally
+                {
+                    cn.Close();
+                }
+
+            }
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            if (txtNome.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo nome. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNome.Focus();
+            }
+            else if (TxtEndereco.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo endereço. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtEndereco.Focus();
+            }
+            else if (txtTelefone.Text.Length < 14)
+            {
+                MessageBox.Show("O número de Telefone está errado, Porfavor informar os 14 digitos. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTelefone.Focus();
+            }
+            else if (TxtCpf.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo CPF. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCpf.Focus();
+            }
+            else if (TxtCpf.Text.Length < 12)
+            {
+                MessageBox.Show("O CPF está errado, Porfavor informar os 12 digitos. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCpf.Focus();
+            }
+            else
+            {
+                DialogResult exclusao = MessageBox.Show("Você tem certeza que deseja remover esse registro?", "Exclusão de Registro", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+                if (exclusao == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        string cpf = TxtCpf.Text;
+                        cn.Open();
+                        string strSql = "delete from cliente where cpf=@cpf";
+                        cm.CommandText = strSql;
+                        cm.Connection = cn;
+                        cm.Parameters.Add("@cpf", System.Data.SqlDbType.VarChar).Value = cpf;
+
+                        
+                        cm.ExecuteNonQuery();
+                        cm.Parameters.Clear();
+                        LimparCampos();
+                        MessageBox.Show("Os dados foram removidos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show(erro.Message);
+                        cn.Close();
+                    }
+                    finally
+                    {
+                        cn.Close();
+                    }
                 }
             }
         }
