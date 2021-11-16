@@ -17,11 +17,6 @@ C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\cl
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\bin\Debug\clienteC.exe.config
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\bin\Debug\clienteC.exe
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\bin\Debug\clienteC.pdb
-C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\frmFuncionario.g.cs
-C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC_MarkupCompile.cache
-C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC_MarkupCompile.lref
-C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\frmFuncionario.baml
-C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.g.resources
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.cadastro.resources
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.Properties.Resources.resources
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.csproj.GenerateResource.cache
@@ -42,3 +37,4 @@ C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\cli
 C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.csproj.GenerateResource.cache
 C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.csproj.CoreCompileInputs.cache
 C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.exe
+C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.UserControl1.resources

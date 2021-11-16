@@ -34,9 +34,8 @@ namespace clienteC
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Panel();
+            this.userControl11 = new clienteC.UserControl1();
             this.button1 = new System.Windows.Forms.Button();
-            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-            this.frmfuncionario = new clienteC.frmFuncionario();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.btnFechar.SuspendLayout();
@@ -76,13 +75,21 @@ namespace clienteC
             // 
             this.btnFechar.BackColor = System.Drawing.Color.White;
             this.btnFechar.Controls.Add(this.button1);
-            this.btnFechar.Controls.Add(this.elementHost1);
+            this.btnFechar.Controls.Add(this.userControl11);
             this.btnFechar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnFechar.Location = new System.Drawing.Point(200, 0);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(800, 600);
             this.btnFechar.TabIndex = 1;
             this.btnFechar.Paint += new System.Windows.Forms.PaintEventHandler(this.btnFechar_Paint);
+            // 
+            // userControl11
+            // 
+            this.userControl11.BackColor = System.Drawing.Color.White;
+            this.userControl11.Location = new System.Drawing.Point(0, 0);
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Size = new System.Drawing.Size(800, 600);
+            this.userControl11.TabIndex = 1;
             // 
             // button1
             // 
@@ -96,15 +103,6 @@ namespace clienteC
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // elementHost1
-            // 
-            this.elementHost1.Location = new System.Drawing.Point(0, 0);
-            this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(800, 600);
-            this.elementHost1.TabIndex = 1;
-            this.elementHost1.Text = "elementHost1";
-            this.elementHost1.Child = this.frmfuncionario;
             // 
             // cadastro
             // 
@@ -130,8 +128,7 @@ namespace clienteC
         private System.Windows.Forms.Panel btnFechar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCliente;
-        private System.Windows.Forms.Integration.ElementHost elementHost1;
-        private frmFuncionario frmfuncionario;
+        private UserControl1 userControl11;
     }
 }
 
