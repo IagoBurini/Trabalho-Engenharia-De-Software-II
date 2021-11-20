@@ -204,6 +204,7 @@ namespace clienteC
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(222, 20);
             this.txtNome.TabIndex = 14;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // TxtCpf
             // 

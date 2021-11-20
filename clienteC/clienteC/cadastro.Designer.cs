@@ -36,8 +36,8 @@ namespace clienteC
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.userControl11 = new clienteC.UserControl1();
             this.funcionario1 = new clienteC.funcionario();
+            this.userControl11 = new clienteC.UserControl1();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.btnFechar.SuspendLayout();
@@ -50,6 +50,7 @@ namespace clienteC
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnCliente);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -92,7 +93,6 @@ namespace clienteC
             // 
             this.btnFechar.BackColor = System.Drawing.Color.White;
             this.btnFechar.Controls.Add(this.funcionario1);
-            this.btnFechar.Controls.Add(this.button1);
             this.btnFechar.Controls.Add(this.userControl11);
             this.btnFechar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnFechar.Location = new System.Drawing.Point(200, 0);
@@ -106,13 +106,21 @@ namespace clienteC
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Maroon;
-            this.button1.Location = new System.Drawing.Point(756, 3);
+            this.button1.Location = new System.Drawing.Point(77, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(41, 37);
             this.button1.TabIndex = 0;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // funcionario1
+            // 
+            this.funcionario1.BackColor = System.Drawing.Color.White;
+            this.funcionario1.Location = new System.Drawing.Point(0, 0);
+            this.funcionario1.Name = "funcionario1";
+            this.funcionario1.Size = new System.Drawing.Size(800, 600);
+            this.funcionario1.TabIndex = 2;
             // 
             // userControl11
             // 
@@ -122,14 +130,6 @@ namespace clienteC
             this.userControl11.Size = new System.Drawing.Size(800, 600);
             this.userControl11.TabIndex = 1;
             this.userControl11.Load += new System.EventHandler(this.userControl11_Load);
-            // 
-            // funcionario1
-            // 
-            this.funcionario1.BackColor = System.Drawing.Color.White;
-            this.funcionario1.Location = new System.Drawing.Point(0, 0);
-            this.funcionario1.Name = "funcionario1";
-            this.funcionario1.Size = new System.Drawing.Size(800, 600);
-            this.funcionario1.TabIndex = 2;
             // 
             // cadastro
             // 
