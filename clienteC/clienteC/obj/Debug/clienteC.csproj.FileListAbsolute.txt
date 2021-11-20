@@ -34,3 +34,4 @@ C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\cli
 C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.exe
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.UserControl1.resources
 C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.UserControl1.resources
+C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.funcionario.resources

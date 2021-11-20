@@ -21,7 +21,7 @@ namespace clienteC
 
         //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
 
         SqlCommand cm = new SqlCommand();
 
@@ -188,6 +188,8 @@ namespace clienteC
 
                     cn.Open();
                     cm.ExecuteNonQuery();
+                    cm.Parameters.Clear();
+
                     LimparCampos();
                     MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -294,6 +296,7 @@ namespace clienteC
                     string cpf = TxtCpf.Text;
                     string endereco = TxtEndereco.Text;
                     
+                    
                     string strSql = "update cliente set nome=@nome, telefone=@telefone, cpf=@cpf, endereco=@endereco where cpf=@cpf ";
 
                     cm.CommandText = strSql;
@@ -390,6 +393,11 @@ namespace clienteC
                     }
                 }
             }
+        }
+
+        private void txtTelefone_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
