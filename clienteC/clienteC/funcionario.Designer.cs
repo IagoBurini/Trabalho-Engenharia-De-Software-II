@@ -282,6 +282,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "funcionario";
             this.Size = new System.Drawing.Size(800, 600);
+            this.Load += new System.EventHandler(this.funcionario_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

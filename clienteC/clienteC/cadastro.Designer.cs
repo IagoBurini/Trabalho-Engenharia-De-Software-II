@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCadastrarProduto = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.funcionario1 = new clienteC.funcionario();
             this.userControl11 = new clienteC.UserControl1();
-            this.btnCadastrarProduto = new System.Windows.Forms.Button();
             this.userControl21 = new clienteC.UserControl2();
+            this.funcionario1 = new clienteC.funcionario();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.btnFechar.SuspendLayout();
@@ -60,6 +60,22 @@
             this.panel1.Size = new System.Drawing.Size(200, 600);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnCadastrarProduto
+            // 
+            this.btnCadastrarProduto.BackColor = System.Drawing.Color.DarkRed;
+            this.btnCadastrarProduto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCadastrarProduto.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarProduto.Font = new System.Drawing.Font("Impact", 12F);
+            this.btnCadastrarProduto.ForeColor = System.Drawing.Color.White;
+            this.btnCadastrarProduto.Location = new System.Drawing.Point(0, 220);
+            this.btnCadastrarProduto.Name = "btnCadastrarProduto";
+            this.btnCadastrarProduto.Size = new System.Drawing.Size(200, 110);
+            this.btnCadastrarProduto.TabIndex = 3;
+            this.btnCadastrarProduto.Text = "Cadastrar Produto";
+            this.btnCadastrarProduto.UseVisualStyleBackColor = true;
+            this.btnCadastrarProduto.Click += new System.EventHandler(this.btnCadastrarProduto_Click);
             // 
             // button2
             // 
@@ -119,14 +135,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // funcionario1
-            // 
-            this.funcionario1.BackColor = System.Drawing.Color.White;
-            this.funcionario1.Location = new System.Drawing.Point(0, 0);
-            this.funcionario1.Name = "funcionario1";
-            this.funcionario1.Size = new System.Drawing.Size(800, 600);
-            this.funcionario1.TabIndex = 2;
-            // 
             // userControl11
             // 
             this.userControl11.BackColor = System.Drawing.Color.White;
@@ -136,21 +144,6 @@
             this.userControl11.TabIndex = 1;
             this.userControl11.Load += new System.EventHandler(this.userControl11_Load);
             // 
-            // btnCadastrarProduto
-            // 
-            this.btnCadastrarProduto.BackColor = System.Drawing.Color.DarkRed;
-            this.btnCadastrarProduto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCadastrarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarProduto.Font = new System.Drawing.Font("Impact", 12F);
-            this.btnCadastrarProduto.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrarProduto.Location = new System.Drawing.Point(0, 220);
-            this.btnCadastrarProduto.Name = "btnCadastrarProduto";
-            this.btnCadastrarProduto.Size = new System.Drawing.Size(200, 110);
-            this.btnCadastrarProduto.TabIndex = 3;
-            this.btnCadastrarProduto.Text = "Cadastrar Produto";
-            this.btnCadastrarProduto.UseVisualStyleBackColor = true;
-            this.btnCadastrarProduto.Click += new System.EventHandler(this.btnCadastrarProduto_Click);
-            // 
             // userControl21
             // 
             this.userControl21.BackColor = System.Drawing.Color.White;
@@ -158,6 +151,14 @@
             this.userControl21.Name = "userControl21";
             this.userControl21.Size = new System.Drawing.Size(800, 600);
             this.userControl21.TabIndex = 3;
+            // 
+            // funcionario1
+            // 
+            this.funcionario1.BackColor = System.Drawing.Color.White;
+            this.funcionario1.Location = new System.Drawing.Point(0, 0);
+            this.funcionario1.Name = "funcionario1";
+            this.funcionario1.Size = new System.Drawing.Size(800, 600);
+            this.funcionario1.TabIndex = 2;
             // 
             // cadastro
             // 

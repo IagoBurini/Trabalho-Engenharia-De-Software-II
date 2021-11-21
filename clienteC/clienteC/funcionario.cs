@@ -25,19 +25,7 @@ namespace clienteC
 
         SqlDataReader dt;
 
-        private void DesabilitaCamposF()
-        {
-            txtNomeF.Enabled = false;
-            txtTelefoneF.Enabled = false;
-            txtCpfF.Enabled = false;
-            txtEnderecoF.Enabled = false;
-            editarFunc.Enabled = false;
-            novoFunc.Enabled = false;
-            removerFunc.Enabled = false;
-            novoFunc.Enabled = true;
-            cancelarFunc.Enabled = false;
-            salvarFunc.Enabled = false;
-        }
+        
 
         private void HabilitaCamposF()
         {
@@ -81,14 +69,21 @@ namespace clienteC
         }
 
 
-
-
-
-        private void funcionario_Load(object sender, EventArgs e)
+        private void DesabilitaCamposF()
         {
-            DesabilitaCamposF();
-            MostrarTodosFuncionarios();
+            txtNomeF.Enabled = false;
+            txtTelefoneF.Enabled = false;
+            txtCpfF.Enabled = false;
+            txtEnderecoF.Enabled = false;
+            editarFunc.Enabled = false;
+            novoFunc.Enabled = false;
+            removerFunc.Enabled = false;
+            novoFunc.Enabled = true;
+            cancelarFunc.Enabled = false;
+            salvarFunc.Enabled = false;
         }
+
+
 
         private void MostrarTodosFuncionarios()
         {
@@ -269,7 +264,7 @@ namespace clienteC
 
         private void dgvF_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            carregaFuncionario();
         }
 
         private void txtNomeF_TextChanged(object sender, EventArgs e)
@@ -354,16 +349,15 @@ namespace clienteC
 
         private void carregaFuncionario()
         {
+            manipularDadosF();
             txtNomeF.Text = dgvF.SelectedRows[0].Cells[1].Value.ToString();
-            txtEnderecoF.Text = dgvF.SelectedRows[0].Cells[4].Value.ToString();
             txtTelefoneF.Text = dgvF.SelectedRows[0].Cells[2].Value.ToString();
             txtCpfF.Text = dgvF.SelectedRows[0].Cells[3].Value.ToString();
-            manipularDadosF();
+            txtEnderecoF.Text = dgvF.SelectedRows[0].Cells[4].Value.ToString();
+            
+            
         }
-        private void dgvF_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            carregaFuncionario();
-        }
+  
 
         private void buscaF_TextChanged(object sender, EventArgs e)
         {
@@ -395,6 +389,12 @@ namespace clienteC
                     MostrarTodosFuncionarios();
                 }
             }
+        }
+
+        private void funcionario_Load_1(object sender, EventArgs e)
+        {
+            DesabilitaCamposF();
+            MostrarTodosFuncionarios();
         }
     }
 }

@@ -20,14 +20,14 @@ namespace clienteC
 
         //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
 
         SqlCommand cm = new SqlCommand();
 
         SqlDataReader dt;
 
 
-        private void MostrarTodosClientes()
+        private void MostrarTodosProdutos()
         {
             try
             {
@@ -115,7 +115,7 @@ namespace clienteC
         private void UserControl2_Load(object sender, EventArgs e)
         {
             DesabilitaCampos();
-            MostrarTodosClientes();
+            MostrarTodosProdutos();
         }
 
         private void btn_novo_Click(object sender, EventArgs e)
@@ -139,7 +139,7 @@ namespace clienteC
                 }
                 else if (txtValor.Text == "")
                 {
-                    MessageBox.Show("Obrigatório informar um valorm, Porfavor informar em numeros inteiros. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Obrigatório informar um valor, Porfavor informar em numeros inteiros. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtValor.Focus();
                 }
                 else if (txtQtd.Text == "")
@@ -239,25 +239,25 @@ namespace clienteC
             }
             else
             {
-                MostrarTodosClientes();
+                MostrarTodosProdutos();
             }
         }
 
 
-        private void carregaCliente()
+        private void carregaProduto()
         {
-            txtNome.Text = dgv_Mostrar.SelectedRows[0].Cells[0].Value.ToString();
-            txtValor.Text = dgv_Mostrar.SelectedRows[0].Cells[1].Value.ToString();
-            txtQtd.Text = dgv_Mostrar.SelectedRows[0].Cells[2].Value.ToString();
-            txtDesc.Text = dgv_Mostrar.SelectedRows[0].Cells[3].Value.ToString();
-            txtEstoqMin.Text = dgv_Mostrar.SelectedRows[0].Cells[4].Value.ToString();
-            dtpValidade.Text = dgv_Mostrar.SelectedRows[0].Cells[5].Value.ToString();
+            txtNome.Text = dgv_Mostrar.SelectedRows[0].Cells[1].Value.ToString();
+            txtValor.Text = dgv_Mostrar.SelectedRows[0].Cells[2].Value.ToString();
+            txtQtd.Text = dgv_Mostrar.SelectedRows[0].Cells[3].Value.ToString();
+            txtDesc.Text = dgv_Mostrar.SelectedRows[0].Cells[4].Value.ToString();
+            txtEstoqMin.Text = dgv_Mostrar.SelectedRows[0].Cells[5].Value.ToString();
+            dtpValidade.Text = dgv_Mostrar.SelectedRows[0].Cells[6].Value.ToString();
             manipularDados();
         }
 
         private void dgv_Mostrar_DoubleClick(object sender, EventArgs e)
         {
-            carregaCliente();
+            carregaProduto();
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -334,7 +334,7 @@ namespace clienteC
                     finally
                     {
                         cn.Close();
-                        MostrarTodosClientes();
+                        MostrarTodosProdutos();
                     }
 
                 }
@@ -387,7 +387,7 @@ namespace clienteC
                         {
                             string nome = txtNome.Text;
                             cn.Open();
-                            string strSql = "delete from cliente where nome=@nome";
+                            string strSql = "delete from produtos where nome=@nome";
                             cm.CommandText = strSql;
                             cm.Connection = cn;
                             cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
@@ -406,7 +406,7 @@ namespace clienteC
                         finally
                         {
                             cn.Close();
-                            MostrarTodosClientes();
+                            MostrarTodosProdutos();
                         }
                     }
                 }
