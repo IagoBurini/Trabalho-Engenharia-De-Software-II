@@ -412,5 +412,15 @@ namespace clienteC
                 }
             }
         }
+
+        private void dgv_Mostrar_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            carregaProduto();
+        }
+
+        private void dgv_Mostrar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

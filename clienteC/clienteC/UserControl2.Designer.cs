@@ -183,10 +183,14 @@ namespace clienteC
             // 
             this.dgv_Mostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Mostrar.Location = new System.Drawing.Point(197, 507);
+            this.dgv_Mostrar.MultiSelect = false;
             this.dgv_Mostrar.Name = "dgv_Mostrar";
+            this.dgv_Mostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Mostrar.Size = new System.Drawing.Size(365, 87);
             this.dgv_Mostrar.TabIndex = 14;
+            this.dgv_Mostrar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Mostrar_CellContentClick);
             this.dgv_Mostrar.DoubleClick += new System.EventHandler(this.dgv_Mostrar_DoubleClick);
+            this.dgv_Mostrar.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgv_Mostrar_MouseDoubleClick);
             // 
             // label5
             // 

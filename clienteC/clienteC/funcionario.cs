@@ -347,16 +347,6 @@ namespace clienteC
             }
         }
 
-        private void carregaFuncionario()
-        {
-            manipularDadosF();
-            txtNomeF.Text = dgvF.SelectedRows[0].Cells[1].Value.ToString();
-            txtTelefoneF.Text = dgvF.SelectedRows[0].Cells[2].Value.ToString();
-            txtCpfF.Text = dgvF.SelectedRows[0].Cells[3].Value.ToString();
-            txtEnderecoF.Text = dgvF.SelectedRows[0].Cells[4].Value.ToString();
-            
-            
-        }
   
 
         private void buscaF_TextChanged(object sender, EventArgs e)
@@ -391,10 +381,26 @@ namespace clienteC
             }
         }
 
+         private void carregaFuncionario()
+        {
+            manipularDadosF();
+            txtNomeF.Text = dgvF.SelectedRows[0].Cells[1].Value.ToString();
+            txtTelefoneF.Text = dgvF.SelectedRows[0].Cells[2].Value.ToString();
+            txtCpfF.Text = dgvF.SelectedRows[0].Cells[3].Value.ToString();
+            txtEnderecoF.Text = dgvF.SelectedRows[0].Cells[4].Value.ToString();
+            
+            
+        }
+
         private void funcionario_Load_1(object sender, EventArgs e)
         {
             DesabilitaCamposF();
             MostrarTodosFuncionarios();
+        }
+
+        private void dgvF_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            carregaFuncionario();
         }
     }
 }

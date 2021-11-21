@@ -242,10 +242,13 @@
             // 
             this.dgvF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvF.Location = new System.Drawing.Point(195, 473);
+            this.dgvF.MultiSelect = false;
             this.dgvF.Name = "dgvF";
+            this.dgvF.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvF.Size = new System.Drawing.Size(530, 124);
             this.dgvF.TabIndex = 28;
             this.dgvF.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvF_CellContentClick);
+            this.dgvF.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvF_MouseDoubleClick);
             // 
             // salvarFunc
             // 
