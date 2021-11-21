@@ -37,7 +37,6 @@ namespace clienteC
             this.btnFechar = new System.Windows.Forms.Panel();
             this.funcionario1 = new clienteC.funcionario();
             this.userControl11 = new clienteC.UserControl1();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.btnFechar.SuspendLayout();
@@ -91,7 +90,6 @@ namespace clienteC
             // btnFechar
             // 
             this.btnFechar.BackColor = System.Drawing.Color.White;
-            this.btnFechar.Controls.Add(this.button1);
             this.btnFechar.Controls.Add(this.funcionario1);
             this.btnFechar.Controls.Add(this.userControl11);
             this.btnFechar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -117,19 +115,6 @@ namespace clienteC
             this.userControl11.Size = new System.Drawing.Size(800, 600);
             this.userControl11.TabIndex = 1;
             this.userControl11.Load += new System.EventHandler(this.userControl11_Load);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Maroon;
-            this.button1.Location = new System.Drawing.Point(747, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 37);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cadastro
             // 
@@ -157,7 +142,6 @@ namespace clienteC
         private UserControl1 userControl11;
         private System.Windows.Forms.Button button2;
         private funcionario funcionario1;
-        private System.Windows.Forms.Button button1;
     }
 }
 

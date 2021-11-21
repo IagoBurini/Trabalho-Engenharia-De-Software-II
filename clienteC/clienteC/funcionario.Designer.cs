@@ -30,15 +30,16 @@ namespace clienteC
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtNomeF = new System.Windows.Forms.TextBox();
+            this.txtTelefoneF = new System.Windows.Forms.TextBox();
+            this.txtCpfF = new System.Windows.Forms.TextBox();
+            this.txtEnderecoF = new System.Windows.Forms.TextBox();
             this.novoFunc = new System.Windows.Forms.Button();
             this.removerFunc = new System.Windows.Forms.Button();
             this.editarFunc = new System.Windows.Forms.Button();
@@ -46,13 +47,12 @@ namespace clienteC
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buscaF = new System.Windows.Forms.TextBox();
+            this.dgvF = new System.Windows.Forms.DataGridView();
             this.salvarFunc = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvF)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,6 +64,19 @@ namespace clienteC
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Maroon;
+            this.button1.Location = new System.Drawing.Point(745, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 37);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -117,34 +130,36 @@ namespace clienteC
             this.label2.TabIndex = 13;
             this.label2.Text = "Nome:";
             // 
-            // textBox1
+            // txtNomeF
             // 
-            this.textBox1.Location = new System.Drawing.Point(300, 139);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtNomeF.Location = new System.Drawing.Point(300, 139);
+            this.txtNomeF.Name = "txtNomeF";
+            this.txtNomeF.Size = new System.Drawing.Size(195, 20);
+            this.txtNomeF.TabIndex = 17;
+            this.txtNomeF.TextChanged += new System.EventHandler(this.txtNomeF_TextChanged);
             // 
-            // textBox2
+            // txtTelefoneF
             // 
-            this.textBox2.Location = new System.Drawing.Point(300, 182);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(195, 20);
-            this.textBox2.TabIndex = 18;
+            this.txtTelefoneF.Location = new System.Drawing.Point(300, 182);
+            this.txtTelefoneF.Name = "txtTelefoneF";
+            this.txtTelefoneF.Size = new System.Drawing.Size(195, 20);
+            this.txtTelefoneF.TabIndex = 18;
+            this.txtTelefoneF.TextChanged += new System.EventHandler(this.txtTelefoneF_TextChanged);
             // 
-            // textBox3
+            // txtCpfF
             // 
-            this.textBox3.Location = new System.Drawing.Point(300, 224);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(195, 20);
-            this.textBox3.TabIndex = 19;
+            this.txtCpfF.Location = new System.Drawing.Point(300, 224);
+            this.txtCpfF.Name = "txtCpfF";
+            this.txtCpfF.Size = new System.Drawing.Size(195, 20);
+            this.txtCpfF.TabIndex = 19;
             // 
-            // textBox4
+            // txtEnderecoF
             // 
-            this.textBox4.Location = new System.Drawing.Point(300, 265);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(195, 54);
-            this.textBox4.TabIndex = 20;
+            this.txtEnderecoF.Location = new System.Drawing.Point(300, 265);
+            this.txtEnderecoF.Multiline = true;
+            this.txtEnderecoF.Name = "txtEnderecoF";
+            this.txtEnderecoF.Size = new System.Drawing.Size(195, 54);
+            this.txtEnderecoF.TabIndex = 20;
             // 
             // novoFunc
             // 
@@ -216,20 +231,22 @@ namespace clienteC
             this.label6.TabIndex = 26;
             this.label6.Text = "Digite o Nome do Funcionário:";
             // 
-            // textBox5
+            // buscaF
             // 
-            this.textBox5.Location = new System.Drawing.Point(195, 447);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(261, 20);
-            this.textBox5.TabIndex = 27;
+            this.buscaF.Location = new System.Drawing.Point(195, 447);
+            this.buscaF.Name = "buscaF";
+            this.buscaF.Size = new System.Drawing.Size(261, 20);
+            this.buscaF.TabIndex = 27;
+            this.buscaF.TextChanged += new System.EventHandler(this.buscaF_TextChanged);
             // 
-            // dataGridView1
+            // dgvF
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(195, 473);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(530, 124);
-            this.dataGridView1.TabIndex = 28;
+            this.dgvF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvF.Location = new System.Drawing.Point(195, 473);
+            this.dgvF.Name = "dgvF";
+            this.dgvF.Size = new System.Drawing.Size(530, 124);
+            this.dgvF.TabIndex = 28;
+            this.dgvF.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvF_CellContentClick);
             // 
             // salvarFunc
             // 
@@ -239,19 +256,7 @@ namespace clienteC
             this.salvarFunc.TabIndex = 29;
             this.salvarFunc.Text = "Salvar";
             this.salvarFunc.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Maroon;
-            this.button1.Location = new System.Drawing.Point(745, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 37);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.salvarFunc.Click += new System.EventHandler(this.salvarFunc_Click);
             // 
             // funcionario
             // 
@@ -259,18 +264,18 @@ namespace clienteC
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.salvarFunc);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.dgvF);
+            this.Controls.Add(this.buscaF);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cancelarFunc);
             this.Controls.Add(this.editarFunc);
             this.Controls.Add(this.removerFunc);
             this.Controls.Add(this.novoFunc);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtEnderecoF);
+            this.Controls.Add(this.txtCpfF);
+            this.Controls.Add(this.txtTelefoneF);
+            this.Controls.Add(this.txtNomeF);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -282,7 +287,7 @@ namespace clienteC
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvF)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,10 +301,10 @@ namespace clienteC
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtNomeF;
+        private System.Windows.Forms.TextBox txtTelefoneF;
+        private System.Windows.Forms.TextBox txtCpfF;
+        private System.Windows.Forms.TextBox txtEnderecoF;
         private System.Windows.Forms.Button novoFunc;
         private System.Windows.Forms.Button removerFunc;
         private System.Windows.Forms.Button editarFunc;
@@ -307,8 +312,8 @@ namespace clienteC
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox buscaF;
+        private System.Windows.Forms.DataGridView dgvF;
         private System.Windows.Forms.Button salvarFunc;
         private System.Windows.Forms.Button button1;
     }
