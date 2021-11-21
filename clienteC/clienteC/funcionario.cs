@@ -183,7 +183,7 @@ namespace clienteC
             }
         }
 
-        
+
 
         private void editarFunc_Click(object sender, EventArgs e)
         {
@@ -276,7 +276,7 @@ namespace clienteC
         {
 
         }
-        
+
         private void txtTelefoneF_TextChanged(object sender, EventArgs e)
         {
 
