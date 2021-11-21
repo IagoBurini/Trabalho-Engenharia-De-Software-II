@@ -49,7 +49,7 @@ namespace clienteC
         private void button2_Click(object sender, EventArgs e)
         {
             userControl11.BringToFront();
-            
+            button1.BringToFront();
         }
 
         private void btnFechar_Paint(object sender, PaintEventArgs e)
@@ -60,7 +60,7 @@ namespace clienteC
         private void button2_Click_1(object sender, EventArgs e)
         {
             funcionario1.BringToFront();
-           
+            button1.BringToFront();
         }
 
         private void userControl11_Load(object sender, EventArgs e)
@@ -68,6 +68,10 @@ namespace clienteC
 
         }
 
-        
+        private void btnCadastrarProduto_Click(object sender, EventArgs e)
+        {
+            userControl21.BringToFront();
+            button1.BringToFront();
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace clienteC
+﻿namespace clienteC
 {
     partial class funcionario
     {
