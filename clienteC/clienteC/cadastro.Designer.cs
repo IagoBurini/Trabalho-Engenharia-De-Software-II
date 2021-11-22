@@ -36,9 +36,11 @@
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_cadastrarCompra = new System.Windows.Forms.Button();
             this.userControl11 = new clienteC.UserControl1();
             this.userControl21 = new clienteC.UserControl2();
             this.funcionario1 = new clienteC.funcionario();
+            this.compra1 = new clienteC.compra();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.btnFechar.SuspendLayout();
@@ -51,6 +53,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
+            this.panel1.Controls.Add(this.btn_cadastrarCompra);
             this.panel1.Controls.Add(this.btnCadastrarProduto);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnCliente);
@@ -115,6 +118,7 @@
             this.btnFechar.Controls.Add(this.userControl11);
             this.btnFechar.Controls.Add(this.userControl21);
             this.btnFechar.Controls.Add(this.funcionario1);
+            this.btnFechar.Controls.Add(this.compra1);
             this.btnFechar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnFechar.Location = new System.Drawing.Point(200, 0);
             this.btnFechar.Name = "btnFechar";
@@ -134,6 +138,20 @@
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_cadastrarCompra
+            // 
+            this.btn_cadastrarCompra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_cadastrarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cadastrarCompra.Font = new System.Drawing.Font("Impact", 12F);
+            this.btn_cadastrarCompra.ForeColor = System.Drawing.Color.White;
+            this.btn_cadastrarCompra.Location = new System.Drawing.Point(0, 330);
+            this.btn_cadastrarCompra.Name = "btn_cadastrarCompra";
+            this.btn_cadastrarCompra.Size = new System.Drawing.Size(200, 110);
+            this.btn_cadastrarCompra.TabIndex = 4;
+            this.btn_cadastrarCompra.Text = "Cadastrar Compra";
+            this.btn_cadastrarCompra.UseVisualStyleBackColor = true;
+            this.btn_cadastrarCompra.Click += new System.EventHandler(this.btn_cadastrarCompra_Click);
             // 
             // userControl11
             // 
@@ -159,6 +177,14 @@
             this.funcionario1.Name = "funcionario1";
             this.funcionario1.Size = new System.Drawing.Size(800, 600);
             this.funcionario1.TabIndex = 2;
+            // 
+            // compra1
+            // 
+            this.compra1.BackColor = System.Drawing.Color.White;
+            this.compra1.Location = new System.Drawing.Point(0, 0);
+            this.compra1.Name = "compra1";
+            this.compra1.Size = new System.Drawing.Size(800, 600);
+            this.compra1.TabIndex = 4;
             // 
             // cadastro
             // 
@@ -189,5 +215,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCadastrarProduto;
         private UserControl2 userControl21;
+        private System.Windows.Forms.Button btn_cadastrarCompra;
+        private compra compra1;
     }
 }

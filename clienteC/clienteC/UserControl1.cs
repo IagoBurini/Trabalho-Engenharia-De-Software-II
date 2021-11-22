@@ -21,7 +21,7 @@ namespace clienteC
 
         //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
 
         SqlCommand cm = new SqlCommand();
 
@@ -176,12 +176,12 @@ namespace clienteC
                     string cpf = TxtCpf.Text;
                     string endereco = TxtEndereco.Text;
 
-                    string strSql = "insert into cliente(nome,telefone,cpf,endereco)values(@nome,@telefone,@cpf,@endereco)";
+                    string strSql = "insert into cliente(nome,telefone,cpf,endereco)values(@nomeProduto,@telefone,@cpf,@endereco)";
 
                     cm.CommandText = strSql;
                     cm.Connection = cn;
 
-                    cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
+                    cm.Parameters.Add("@nomeProduto", System.Data.SqlDbType.VarChar).Value = nome;
                     cm.Parameters.Add("@telefone", System.Data.SqlDbType.VarChar).Value = telefone;
                     cm.Parameters.Add("@cpf", System.Data.SqlDbType.VarChar).Value = cpf;
                     cm.Parameters.Add("@endereco", System.Data.SqlDbType.VarChar).Value = endereco;
@@ -297,12 +297,12 @@ namespace clienteC
                     string endereco = TxtEndereco.Text;
                     
                     
-                    string strSql = "update cliente set nome=@nome, telefone=@telefone, cpf=@cpf, endereco=@endereco where cpf=@cpf ";
+                    string strSql = "update cliente set nome=@nomeProduto, telefone=@telefone, cpf=@cpf, endereco=@endereco where cpf=@cpf ";
 
                     cm.CommandText = strSql;
                     cm.Connection = cn;
 
-                    cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
+                    cm.Parameters.Add("@nomeProduto", System.Data.SqlDbType.VarChar).Value = nome;
                     cm.Parameters.Add("@telefone", System.Data.SqlDbType.VarChar).Value = telefone;
                     cm.Parameters.Add("@cpf", System.Data.SqlDbType.VarChar).Value = cpf;
                     cm.Parameters.Add("@endereco", System.Data.SqlDbType.VarChar).Value = endereco;

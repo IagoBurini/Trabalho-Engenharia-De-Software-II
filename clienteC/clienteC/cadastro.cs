@@ -73,5 +73,11 @@ namespace clienteC
             userControl21.BringToFront();
             button1.BringToFront();
         }
+
+        private void btn_cadastrarCompra_Click(object sender, EventArgs e)
+        {
+            compra1.BringToFront();
+            button1.BringToFront();
+        }
     }
 }

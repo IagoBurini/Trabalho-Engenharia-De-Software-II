@@ -58,6 +58,12 @@
     <Compile Include="cadastro.Designer.cs">
       <DependentUpon>cadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="compra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="compra.Designer.cs">
+      <DependentUpon>compra.cs</DependentUpon>
+    </Compile>
     <Compile Include="funcionario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <EmbeddedResource Include="cadastro.resx">
       <DependentUpon>cadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="compra.resx">
+      <DependentUpon>compra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="funcionario.resx">
       <DependentUpon>funcionario.cs</DependentUpon>

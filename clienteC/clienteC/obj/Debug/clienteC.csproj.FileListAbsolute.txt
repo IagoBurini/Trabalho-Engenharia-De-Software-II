@@ -50,3 +50,6 @@ C:\Users\Windows\Desktop\Trabalho-Engenharia-De-Software-II - Copia\clienteC\cli
 C:\Users\Windows\Desktop\Trabalho-Engenharia-De-Software-II - Copia\clienteC\clienteC\obj\Debug\clienteC.csproj.AssemblyReference.cache
 C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.funcionario.resources
 C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.UserControl2.resources
+C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.funcionario.resources
+C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.csproj.AssemblyReference.cache
+C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.compra.resources
