@@ -31,3 +31,6 @@
 *.out
 *.app
 clienteC/.vs/clienteC/v16/.suo
+clienteC/.vs/clienteC/v16/.suo
+clienteC/clienteC/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+clienteC/clienteC/obj/Debug/clienteC.csproj.GenerateResource.cache
