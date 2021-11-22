@@ -20,7 +20,7 @@ namespace clienteC
 
         //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
 
         SqlCommand cm = new SqlCommand();
 
@@ -171,23 +171,24 @@ namespace clienteC
                         string valor = txtValor.Text;
                         string qtd = txtQtd.Text;
                         string desc = txtDesc.Text;
-                        string estoquemin = txtEstoqMin.Text;
+                        string estoqueMin = txtEstoqMin.Text;
                         string validade = dtpValidade.Text;
 
-                        string strSql = "insert into produtos(nome,valor,qtd,descricao,estoquemin,validade)values(@nomeProduto,@valor,@qtd,@descricao,@estoquemin,@validade)";
+                        string strSql = "insert into produtos(nome,valor,qtd,descricao,estoquemin,validade)values(@nome,@valor,@qtd,@descricao,@estoquemin,@validade)";
 
                         cm.CommandText = strSql;
                         cm.Connection = cn;
 
-                        cm.Parameters.Add("@nomeProduto", System.Data.SqlDbType.VarChar).Value = nome;
+                        cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
                         cm.Parameters.Add("@valor", System.Data.SqlDbType.Decimal).Value = valor;
                         cm.Parameters.Add("@qtd", System.Data.SqlDbType.Int).Value = qtd;
                         cm.Parameters.Add("@descricao", System.Data.SqlDbType.VarChar).Value = desc;
-                        cm.Parameters.Add("@estoquemin", System.Data.SqlDbType.Int).Value = estoquemin;
+                        cm.Parameters.Add("@estoquemin", System.Data.SqlDbType.Int).Value = estoqueMin;
                         cm.Parameters.Add("@validade", System.Data.SqlDbType.Date).Value = validade;
 
                         cn.Open();
                         cm.ExecuteNonQuery();
+                        cm.Parameters.Clear(); cm.Parameters.Clear();
                         LimparCampos();
                         MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -201,7 +202,7 @@ namespace clienteC
                     finally
                     {
                         cn.Close();
-                        MostrarTodosProdutos();
+                        //MostrarTodosClientes();
                     }
 
                 }
@@ -302,19 +303,19 @@ namespace clienteC
                         string valor = txtValor.Text;
                         string qtd = txtQtd.Text;
                         string desc = txtDesc.Text;
-                        string estoquemin = txtEstoqMin.Text;
+                        string estoqueMin = txtEstoqMin.Text;
                         string validade = dtpValidade.Text;
 
-                        string strSql = "update produtos set nome=@nomeProduto, valor=@valor, qtd=@qtd, descricao=@descricao estoquemin=@estoquemin validade=@validade where nome=@nomeProduto ";
+                        string strSql = "update produtos set nome=@nome, valor=@valor, qtd=@qtd, descricao=@descricao, estoquemin=@estoquemin, validade=@validade";
 
                         cm.CommandText = strSql;
                         cm.Connection = cn;
 
-                        cm.Parameters.Add("@nomeProduto", System.Data.SqlDbType.VarChar).Value = nome;
+                        cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
                         cm.Parameters.Add("@valor", System.Data.SqlDbType.Decimal).Value = valor;
                         cm.Parameters.Add("@qtd", System.Data.SqlDbType.Int).Value = qtd;
                         cm.Parameters.Add("@descricao", System.Data.SqlDbType.VarChar).Value = desc;
-                        cm.Parameters.Add("@estoquemin", System.Data.SqlDbType.Int).Value = estoquemin;
+                        cm.Parameters.Add("@estoquemin", System.Data.SqlDbType.Int).Value = estoqueMin;
                         cm.Parameters.Add("@validade", System.Data.SqlDbType.Date).Value = validade;
 
 
@@ -322,6 +323,7 @@ namespace clienteC
                         cm.ExecuteNonQuery();
                         cm.Parameters.Clear();
                         LimparCampos();
+
                         MessageBox.Show("Os dados foram alterados com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
@@ -364,7 +366,7 @@ namespace clienteC
                     MessageBox.Show("Obrigatório informar uma descrição. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtDesc.Focus();
                 }
-                else if  (txtEstoqMin.Text == "")
+                else if (txtEstoqMin.Text == "")
                 {
                     MessageBox.Show("Obrigatório informar uma quantidade, Porfavor informar em numeros inteiros. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEstoqMin.Focus();
@@ -387,10 +389,10 @@ namespace clienteC
                         {
                             string nome = txtNome.Text;
                             cn.Open();
-                            string strSql = "delete from produtos where nome=@nomeProduto";
+                            string strSql = "delete from produtos where nome=@nome";
                             cm.CommandText = strSql;
                             cm.Connection = cn;
-                            cm.Parameters.Add("@nomeProduto", System.Data.SqlDbType.VarChar).Value = nome;
+                            cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
 
 
                             cm.ExecuteNonQuery();

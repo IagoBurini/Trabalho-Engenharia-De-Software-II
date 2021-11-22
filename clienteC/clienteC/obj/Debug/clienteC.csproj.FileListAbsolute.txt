@@ -53,3 +53,4 @@ C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\cli
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.funcionario.resources
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.csproj.AssemblyReference.cache
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.compra.resources
+C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.compra.resources
