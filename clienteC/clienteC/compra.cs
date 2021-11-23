@@ -16,5 +16,30 @@ namespace clienteC
         {
             InitializeComponent();
         }
+
+        private void btn_pagar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_vendedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_cliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
