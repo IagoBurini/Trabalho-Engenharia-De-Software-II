@@ -234,6 +234,7 @@ namespace clienteC
             this.cb_produto.Name = "cb_produto";
             this.cb_produto.Size = new System.Drawing.Size(189, 21);
             this.cb_produto.TabIndex = 18;
+            this.cb_produto.SelectedIndexChanged += new System.EventHandler(this.cb_produto_SelectedIndexChanged);
             // 
             // btn_novo
             // 
@@ -389,6 +390,7 @@ namespace clienteC
             this.Controls.Add(this.panel1);
             this.Name = "compra";
             this.Size = new System.Drawing.Size(800, 600);
+            this.Load += new System.EventHandler(this.compra_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_carrinho)).EndInit();
