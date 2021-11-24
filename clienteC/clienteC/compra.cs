@@ -28,6 +28,46 @@ namespace clienteC
 
         SqlDataReader dt;
 
+        private void HabilitaCamposC()
+        {
+            cb_cliente.Enabled = true;
+            cb_vendedor.Enabled = true;
+            btn_cadastrar.Enabled = true;
+            btn_novo.Enabled = false;
+            btn_editar.Enabled = true;
+            btn_remover.Enabled = true;
+            btn_cancelar.Enabled = true;
+        
+           
+            //dgvF.DataSource = null;
+        }
+
+     
+        private void manipularDadosC()
+        {
+            btn_editar.Enabled = true;
+            btn_cancelar.Enabled = true;
+            btn_remover.Enabled = true;
+            btn_cadastrar.Enabled = false;
+            btn_novo.Enabled = false;
+            cb_cliente.Enabled = true;
+            cb_vendedor.Enabled = true;
+
+
+        }
+
+
+        private void DesabilitaCamposC()
+        {
+            cb_cliente.Enabled = false;
+            cb_vendedor.Enabled = false;
+            btn_editar.Enabled = false;
+            btn_remover.Enabled = false;
+            btn_novo.Enabled = true;
+            btn_cancelar.Enabled = false;
+            btn_cadastrar.Enabled = false;
+        }
+
         private void btn_pagar_Click(object sender, EventArgs e)
         {
 
@@ -113,6 +153,69 @@ namespace clienteC
         private void cb_produto_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_novo_Click(object sender, EventArgs e)
+        {
+            HabilitaCamposC();
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            DesabilitaCamposC();
+
+        }
+
+        private void btn_cadastrar_Click(object sender, EventArgs e)
+        {
+            if (cb_cliente.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Cliente. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_cliente.Focus();
+            }
+            else if (cb_vendedor.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Vendedor. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_vendedor.Focus();
+            }
+          
+            else
+            {
+                try
+                {
+                    string cliente = cb_cliente.Text;
+                    string vendedor = cb_vendedor.Text;
+
+
+                    string strSql = "insert into compra(cliente,vendedor)values(@cliente, @vendedor)";
+
+                    cm.CommandText = strSql;
+                    cm.Connection = cn;
+
+                    cm.Parameters.Add("@cliente", System.Data.SqlDbType.VarChar).Value = cliente;
+                    cm.Parameters.Add("@vendedor", System.Data.SqlDbType.VarChar).Value = vendedor;
+            
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    cm.Parameters.Clear();
+
+                   
+                    MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                    cn.Close();
+                }
+
+                finally
+                {
+                    cn.Close();
+                     
+                }
+
+            }
         }
     }
 }
