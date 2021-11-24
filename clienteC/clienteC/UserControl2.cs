@@ -20,7 +20,7 @@ namespace clienteC
 
         //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
 
         SqlCommand cm = new SqlCommand();
 
@@ -202,7 +202,7 @@ namespace clienteC
                     finally
                     {
                         cn.Close();
-                        //MostrarTodosClientes();
+                        MostrarTodosProdutos();
                     }
 
                 }
@@ -305,12 +305,14 @@ namespace clienteC
                         string desc = txtDesc.Text;
                         string estoqueMin = txtEstoqMin.Text;
                         string validade = dtpValidade.Text;
+                        string id = dgv_Mostrar.SelectedRows[0].Cells[0].Value.ToString();
 
-                        string strSql = "update produtos set nome=@nome, valor=@valor, qtd=@qtd, descricao=@descricao, estoquemin=@estoquemin, validade=@validade";
+                        string strSql = "update produtos set nome=@nome, valor=@valor, qtd=@qtd, descricao=@descricao, estoquemin=@estoquemin, validade=@validade where id=@id";
 
                         cm.CommandText = strSql;
                         cm.Connection = cn;
 
+                        cm.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
                         cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
                         cm.Parameters.Add("@valor", System.Data.SqlDbType.Decimal).Value = valor;
                         cm.Parameters.Add("@qtd", System.Data.SqlDbType.Int).Value = qtd;

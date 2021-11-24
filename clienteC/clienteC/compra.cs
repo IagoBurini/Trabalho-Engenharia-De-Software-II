@@ -17,9 +17,9 @@ namespace clienteC
             InitializeComponent();
         }
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
-        SqlConnection cn1 = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
-        SqlConnection cn2 = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn1 = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn2 = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
         SqlCommand cf = new SqlCommand(); //Comando Funcionário
         SqlCommand cm = new SqlCommand(); //Comando Cliente
         SqlCommand cp = new SqlCommand(); //Comando Produto
@@ -45,18 +45,43 @@ namespace clienteC
 
         private void cb_vendedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void cb_cliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
 
+
+        }
+
+
+        private void MostrarTodasCompras()
+        {
+            try
+            {
+                cn.Open();
+                cm.CommandText = "select * from compra";
+                cm.Connection = cn;
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                DataTable dt = new DataTable();
+
+                da.SelectCommand = cm;
+                da.Fill(dt);
+                dgv_compras.DataSource = dt;
+                cn.Close();
+                //DgvFunc.DataSource = null;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void compra_Load(object sender, EventArgs e)
         {
-           //ComboBox Cliente
+            MostrarTodasCompras();
+            //ComboBox Cliente
             cn.Open();
             cm.Connection = cn;
             cm.CommandType = CommandType.Text;
@@ -73,7 +98,7 @@ namespace clienteC
                 cb_cliente.Items.Add(ds.Tables[0].Rows[i][1].ToString());
                 cn.Close();
             }
-          //ComboBox Funcionário
+            //ComboBox Funcionário
             cn.Close();
             cn1.Open();
             cf.Connection = cn1;
@@ -113,6 +138,58 @@ namespace clienteC
         private void cb_produto_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_cadastrar_Click(object sender, EventArgs e)
+        {
+            if (cb_cliente.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Cliente. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_cliente.Focus();
+            }
+            else if (cb_vendedor.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Vendedor. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_vendedor.Focus();
+            }
+
+            else
+            {
+                try
+                {
+                    string cliente = cb_cliente.Text;
+                    string funcionarios = cb_vendedor.Text;
+
+
+                    string strSql = "insert into compra(cliente,funcionarios)values(@cliente, @funcionarios)";
+
+                    cm.CommandText = strSql;
+                    cm.Connection = cn;
+
+                    cm.Parameters.Add("@cliente", System.Data.SqlDbType.VarChar).Value = cliente;
+                    cm.Parameters.Add("@funcionarios", System.Data.SqlDbType.VarChar).Value = funcionarios;
+
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    cm.Parameters.Clear();
+
+
+                    MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                    cn.Close();
+                }
+
+                finally
+                {
+                    cn.Close();
+                    MostrarTodasCompras();
+                }
+
+            }
         }
     }
 }

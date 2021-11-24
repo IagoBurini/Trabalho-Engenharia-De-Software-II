@@ -132,6 +132,7 @@
             // txtNomeF
             // 
             this.txtNomeF.Location = new System.Drawing.Point(300, 139);
+            this.txtNomeF.MaxLength = 40;
             this.txtNomeF.Name = "txtNomeF";
             this.txtNomeF.Size = new System.Drawing.Size(195, 20);
             this.txtNomeF.TabIndex = 17;
@@ -140,6 +141,7 @@
             // txtTelefoneF
             // 
             this.txtTelefoneF.Location = new System.Drawing.Point(300, 182);
+            this.txtTelefoneF.MaxLength = 14;
             this.txtTelefoneF.Name = "txtTelefoneF";
             this.txtTelefoneF.Size = new System.Drawing.Size(195, 20);
             this.txtTelefoneF.TabIndex = 18;
@@ -148,6 +150,7 @@
             // txtCpfF
             // 
             this.txtCpfF.Location = new System.Drawing.Point(300, 224);
+            this.txtCpfF.MaxLength = 13;
             this.txtCpfF.Name = "txtCpfF";
             this.txtCpfF.Size = new System.Drawing.Size(195, 20);
             this.txtCpfF.TabIndex = 19;
@@ -155,6 +158,7 @@
             // txtEnderecoF
             // 
             this.txtEnderecoF.Location = new System.Drawing.Point(300, 265);
+            this.txtEnderecoF.MaxLength = 100;
             this.txtEnderecoF.Multiline = true;
             this.txtEnderecoF.Name = "txtEnderecoF";
             this.txtEnderecoF.Size = new System.Drawing.Size(195, 54);

@@ -56,7 +56,7 @@ namespace clienteC
             this.label9 = new System.Windows.Forms.Label();
             this.btn_pagar = new System.Windows.Forms.Button();
             this.btn_cadastrar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_compras = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btn_removerProduto = new System.Windows.Forms.Button();
@@ -64,7 +64,7 @@ namespace clienteC
             ((System.ComponentModel.ISupportInitialize)(this.dgv_carrinho)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qtd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_compras)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -320,14 +320,15 @@ namespace clienteC
             this.btn_cadastrar.TabIndex = 28;
             this.btn_cadastrar.Text = "Cadastrar";
             this.btn_cadastrar.UseVisualStyleBackColor = true;
+            this.btn_cadastrar.Click += new System.EventHandler(this.btn_cadastrar_Click);
             // 
-            // dataGridView1
+            // dgv_compras
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 147);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(215, 154);
-            this.dataGridView1.TabIndex = 29;
+            this.dgv_compras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_compras.Location = new System.Drawing.Point(25, 147);
+            this.dgv_compras.Name = "dgv_compras";
+            this.dgv_compras.Size = new System.Drawing.Size(215, 154);
+            this.dgv_compras.TabIndex = 29;
             // 
             // textBox1
             // 
@@ -362,7 +363,7 @@ namespace clienteC
             this.Controls.Add(this.btn_removerProduto);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_compras);
             this.Controls.Add(this.btn_cadastrar);
             this.Controls.Add(this.btn_pagar);
             this.Controls.Add(this.label9);
@@ -397,7 +398,7 @@ namespace clienteC
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qtd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_compras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,7 +433,7 @@ namespace clienteC
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_pagar;
         private System.Windows.Forms.Button btn_cadastrar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_compras;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btn_removerProduto;

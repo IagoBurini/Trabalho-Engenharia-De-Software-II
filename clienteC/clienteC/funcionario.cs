@@ -19,7 +19,8 @@ namespace clienteC
             InitializeComponent();
         }
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+
 
         SqlCommand cm = new SqlCommand();
 
@@ -216,13 +217,15 @@ namespace clienteC
                     string telefone = txtTelefoneF.Text;
                     string cpf = txtCpfF.Text;
                     string endereco = txtEnderecoF.Text;
+                    string id = dgvF.SelectedRows[0].Cells[0].Value.ToString();
 
 
-                    string strSql = "update funcionarios set nome=@nome, telefone=@telefone, cpf=@cpf, endereco=@endereco where cpf=@cpf ";
+                    string strSql = "update funcionarios set nome=@nome, telefone=@telefone, cpf=@cpf, endereco=@endereco where id=@id ";
 
                     cm.CommandText = strSql;
                     cm.Connection = cn;
 
+                    cm.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
                     cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
                     cm.Parameters.Add("@telefone", System.Data.SqlDbType.VarChar).Value = telefone;
                     cm.Parameters.Add("@cpf", System.Data.SqlDbType.VarChar).Value = cpf;
