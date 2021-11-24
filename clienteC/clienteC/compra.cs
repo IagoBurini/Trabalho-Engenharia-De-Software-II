@@ -120,6 +120,7 @@ namespace clienteC
 
         private void compra_Load(object sender, EventArgs e)
         {
+            DesabilitaCamposC();
             MostrarTodasCompras();
             //ComboBox Cliente
             cn.Open();
