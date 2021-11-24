@@ -244,6 +244,7 @@ namespace clienteC
             this.btn_novo.TabIndex = 19;
             this.btn_novo.Text = "Novo";
             this.btn_novo.UseVisualStyleBackColor = true;
+            this.btn_novo.Click += new System.EventHandler(this.btn_novo_Click);
             // 
             // btn_cancelar
             // 
@@ -253,6 +254,7 @@ namespace clienteC
             this.btn_cancelar.TabIndex = 20;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // cb_dinheiro
             // 
