@@ -17,9 +17,9 @@ namespace clienteC
             InitializeComponent();
         }
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
-        SqlConnection cn1 = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
-        SqlConnection cn2 = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn1 = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn2 = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
         SqlCommand cf = new SqlCommand(); //Comando Funcionário
         SqlCommand cm = new SqlCommand(); //Comando Cliente
         SqlCommand cp = new SqlCommand(); //Comando Produto
@@ -434,8 +434,9 @@ namespace clienteC
 
         private void carregaCompra()
         {
-            txt_idvendedor.Text = dgv_compras.SelectedRows[0].Cells[1].Value.ToString();
-            txt_idcliente.Text = dgv_compras.SelectedRows[0].Cells[2].Value.ToString();
+            txt_idcliente.Text = dgv_compras.SelectedRows[0].Cells[1].Value.ToString();
+            txt_idvendedor.Text = dgv_compras.SelectedRows[0].Cells[2].Value.ToString();
+            
 
             /* //Cliente LOGICA PARA MOSTRAR O NOME DO CLIENTE ATRAVES DO ID DELE
             if (txt_idcliente.Text == dgv_compras.SelectedRows[0].Cells[2].Value.ToString())

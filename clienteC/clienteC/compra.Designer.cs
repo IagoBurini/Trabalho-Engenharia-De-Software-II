@@ -186,7 +186,9 @@ namespace clienteC
             // 
             this.dgv_carrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_carrinho.Location = new System.Drawing.Point(25, 352);
+            this.dgv_carrinho.MultiSelect = false;
             this.dgv_carrinho.Name = "dgv_carrinho";
+            this.dgv_carrinho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_carrinho.Size = new System.Drawing.Size(215, 231);
             this.dgv_carrinho.TabIndex = 11;
             // 
@@ -318,7 +320,9 @@ namespace clienteC
             // 
             this.dgv_compras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_compras.Location = new System.Drawing.Point(25, 147);
+            this.dgv_compras.MultiSelect = false;
             this.dgv_compras.Name = "dgv_compras";
+            this.dgv_compras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_compras.Size = new System.Drawing.Size(215, 154);
             this.dgv_compras.TabIndex = 29;
             this.dgv_compras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_compras_CellContentClick);
