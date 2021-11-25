@@ -17,12 +17,8 @@ namespace clienteC
             InitializeComponent();
         }
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
-        SqlConnection cn1 = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
-        SqlConnection cn2 = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
-        SqlCommand cf = new SqlCommand(); //Comando Funcionário
-        SqlCommand cm = new SqlCommand(); //Comando Cliente
-        SqlCommand cp = new SqlCommand(); //Comando Produto
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlCommand cq = new SqlCommand();
 
 
 
@@ -103,14 +99,15 @@ namespace clienteC
         {
             try
             {
+                cn.Close();
                 cn.Open();
-                cm.CommandText = "select * from compra";
-                cm.Connection = cn;
+                cq.CommandText = "select * from compra";
+                cq.Connection = cn;
                 SqlDataAdapter da = new SqlDataAdapter();
 
                 DataTable dt = new DataTable();
 
-                da.SelectCommand = cm;
+                da.SelectCommand = cq;
                 da.Fill(dt);
                 dgv_compras.DataSource = dt;
                 cn.Close();
@@ -128,15 +125,16 @@ namespace clienteC
         private void preencherCBCliente()
         {
             //ComboBox Cliente
+            cn.Close();
             cn.Open();
-            cm.Connection = cn;
-            cm.CommandType = CommandType.Text;
-            cm.CommandText = "select * from cliente";
+            cq.Connection = cn;
+            cq.CommandType = CommandType.Text;
+            cq.CommandText = "select * from cliente";
             SqlDataAdapter da = new SqlDataAdapter();
 
             var ds = new DataSet();
 
-            da.SelectCommand = cm;
+            da.SelectCommand = cq;
             da.Fill(ds);
             DataTable dtDatabases = ds.Tables[0];
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -148,15 +146,16 @@ namespace clienteC
 
         private void textboxClienteID()
         {
+            cn.Close();
             cn.Open();
-            cm.Connection = cn;
-            cm.CommandType = CommandType.Text;
-            cm.CommandText = "select * from cliente";
+            cq.Connection = cn;
+            cq.CommandType = CommandType.Text;
+            cq.CommandText = "select * from cliente";
             SqlDataAdapter da = new SqlDataAdapter();
 
             var ds = new DataSet();
 
-            da.SelectCommand = cm;
+            da.SelectCommand = cq;
             da.Fill(ds);
             DataTable dtDatabases = ds.Tables[0];
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -181,32 +180,32 @@ namespace clienteC
         private void preencherCBFuncionario()
         {
             //ComboBox Funcionário
-            cn.Close();
-            cn1.Open();
-            cf.Connection = cn1;
-            cf.CommandText = "select * from funcionarios";
-            cf.CommandType = CommandType.Text;
+            cn.Open();
+            cq.Connection = cn;
+            cq.CommandText = "select * from funcionarios";
+            cq.CommandType = CommandType.Text;
             SqlDataAdapter da1 = new SqlDataAdapter();
             var ds1 = new DataSet();
-            da1.SelectCommand = cf;
+            da1.SelectCommand = cq;
             da1.Fill(ds1);
             DataTable dtDatabases2 = ds1.Tables[0];
             for (int i = 0; i < ds1.Tables[0].Rows.Count; i++)
             {
                 cb_vendedor.Items.Add(ds1.Tables[0].Rows[i][1].ToString());
-                cn1.Close();
+                cn.Close();
             }
         }
 
         private void textboxFuncionarioID()
         {
-            cn1.Open();
-            cf.Connection = cn1;
-            cf.CommandText = "select * from funcionarios";
-            cf.CommandType = CommandType.Text;
+            cn.Close();
+            cn.Open();
+            cq.Connection = cn;
+            cq.CommandText = "select * from funcionarios";
+            cq.CommandType = CommandType.Text;
             SqlDataAdapter da1 = new SqlDataAdapter();
             var ds1 = new DataSet();
-            da1.SelectCommand = cf;
+            da1.SelectCommand = cq;
             da1.Fill(ds1);
             DataTable dtDatabases2 = ds1.Tables[0];
             for (int i = 0; i < ds1.Tables[0].Rows.Count; i++)
@@ -222,34 +221,34 @@ namespace clienteC
         private void preencherCBProduto()
         {
             //ComboBox Produto
-            cn1.Close();
-            cn2.Open();
-            cp.Connection = cn2;
-            cp.CommandText = "select * from produtos";
-            cp.CommandType = CommandType.Text;
+            cn.Close();
+            cn.Open();
+            cq.Connection = cn;
+            cq.CommandText = "select * from produtos";
+            cq.CommandType = CommandType.Text;
             SqlDataAdapter da2 = new SqlDataAdapter();
             var ds2 = new DataSet();
-            da2.SelectCommand = cp;
+            da2.SelectCommand = cq;
             da2.Fill(ds2);
             DataTable dtDatabases3 = ds2.Tables[0];
             for (int i = 0; i < ds2.Tables[0].Rows.Count; i++)
             {
                 cb_produto.Items.Add(ds2.Tables[0].Rows[i][1].ToString());
-                cn2.Close();
+                cn.Close();
             }
         }
 
         private void textboxProdutoID()
         {
             //ComboBox Produto
-            cn1.Close();
-            cn2.Open();
-            cp.Connection = cn2;
-            cp.CommandText = "select * from produtos";
-            cp.CommandType = CommandType.Text;
+            cn.Close();
+            cn.Open();
+            cq.Connection = cn;
+            cq.CommandText = "select * from produtos";
+            cq.CommandType = CommandType.Text;
             SqlDataAdapter da2 = new SqlDataAdapter();
             var ds2 = new DataSet();
-            da2.SelectCommand = cp;
+            da2.SelectCommand = cq;
             da2.Fill(ds2);
             DataTable dtDatabases3 = ds2.Tables[0];
             for (int i = 0; i < ds2.Tables[0].Rows.Count; i++)
@@ -258,7 +257,7 @@ namespace clienteC
                 {
                     txt_produtoID.Text = ds2.Tables[0].Rows[i][0].ToString();
                 }
-                cn2.Close();
+                cn.Close();
             }
         }
 
@@ -311,15 +310,15 @@ namespace clienteC
 
                     string strSql = "insert into compra(idcliente,idfuncionarios)values(@cliente, @funcionarios)";
 
-                    cm.CommandText = strSql;
-                    cm.Connection = cn;
+                    cq.CommandText = strSql;
+                    cq.Connection = cn;
 
-                    cm.Parameters.Add("@cliente", System.Data.SqlDbType.Int).Value = cliente;
-                    cm.Parameters.Add("@funcionarios", System.Data.SqlDbType.Int).Value = funcionarios;
+                    cq.Parameters.Add("@cliente", System.Data.SqlDbType.Int).Value = cliente;
+                    cq.Parameters.Add("@funcionarios", System.Data.SqlDbType.Int).Value = funcionarios;
 
                     cn.Open();
-                    cm.ExecuteNonQuery();
-                    cm.Parameters.Clear();
+                    cq.ExecuteNonQuery();
+                    cq.Parameters.Clear();
 
                     MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -400,13 +399,13 @@ namespace clienteC
                         string id = dgv_compras.SelectedRows[0].Cells[0].Value.ToString();
                         cn.Open();
                         string strSql = "delete from compra where id=@id";
-                        cm.CommandText = strSql;
-                        cm.Connection = cn;
-                        cm.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
+                        cq.CommandText = strSql;
+                        cq.Connection = cn;
+                        cq.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
 
 
-                        cm.ExecuteNonQuery();
-                        cm.Parameters.Clear();
+                        cq.ExecuteNonQuery();
+                        cq.Parameters.Clear();
                         LimparCamposCompras();
                         MessageBox.Show("Os dados foram removidos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -438,27 +437,28 @@ namespace clienteC
             txt_idvendedor.Text = dgv_compras.SelectedRows[0].Cells[2].Value.ToString();
             
 
-            /* //Cliente LOGICA PARA MOSTRAR O NOME DO CLIENTE ATRAVES DO ID DELE
+            // Cliente LOGICA PARA MOSTRAR O NOME DO CLIENTE ATRAVES DO ID DELE
             if (txt_idcliente.Text == dgv_compras.SelectedRows[0].Cells[2].Value.ToString())
             {
+                            cn.Close();
                 cn.Open();
-                cm.Connection = cn;
-                cm.CommandType = CommandType.Text;
-                cm.CommandText = "select * from cliente";
+                cq.Connection = cn;
+                cq.CommandType = CommandType.Text;
+                cq.CommandText = "select * from cliente";
                 SqlDataAdapter da = new SqlDataAdapter();
 
                 var ds = new DataSet();
 
-                da.SelectCommand = cm;
+                da.SelectCommand = cq;
                 da.Fill(ds);
                 DataTable dtDatabases = ds.Tables[0];
                 if (txt_idcliente.Text == dgv_compras.SelectedRows[0].Cells[2].Value.ToString())
                 {
-                        cb_cliente.Text = ds.Tables[0].Rows[0][1].ToString();
+                    cb_cliente.Text = ds.Tables[0].Rows[0][1].ToString();
+                    cn.Close();
                 }
-                cn.Close();
             }
-            //manipularDados(); */
+            //manipularDados();
         }
         private void dgv_compras_MouseDoubleClick(object sender, MouseEventArgs e)
         {
