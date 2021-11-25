@@ -42,9 +42,7 @@ namespace clienteC
             this.cb_vendedor = new System.Windows.Forms.ComboBox();
             this.dgv_carrinho = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txt_valortotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.txt_qtd = new System.Windows.Forms.NumericUpDown();
             this.cb_produto = new System.Windows.Forms.ComboBox();
             this.btn_novo = new System.Windows.Forms.Button();
@@ -60,6 +58,10 @@ namespace clienteC
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btn_removerProduto = new System.Windows.Forms.Button();
+            this.txt_idcliente = new System.Windows.Forms.TextBox();
+            this.txt_idvendedor = new System.Windows.Forms.TextBox();
+            this.txt_produtoID = new System.Windows.Forms.TextBox();
+            this.txt_valortotal = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_carrinho)).BeginInit();
             this.panel2.SuspendLayout();
@@ -123,16 +125,17 @@ namespace clienteC
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label5.Location = new System.Drawing.Point(250, 460);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label5.Location = new System.Drawing.Point(306, 415);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 21);
+            this.label5.Size = new System.Drawing.Size(72, 15);
             this.label5.TabIndex = 5;
             this.label5.Text = "Quantidade:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btn_adicionar
             // 
-            this.btn_adicionar.Location = new System.Drawing.Point(336, 490);
+            this.btn_adicionar.Location = new System.Drawing.Point(374, 440);
             this.btn_adicionar.Name = "btn_adicionar";
             this.btn_adicionar.Size = new System.Drawing.Size(100, 30);
             this.btn_adicionar.TabIndex = 6;
@@ -156,24 +159,28 @@ namespace clienteC
             this.btn_remover.TabIndex = 8;
             this.btn_remover.Text = "Remover";
             this.btn_remover.UseVisualStyleBackColor = true;
+            this.btn_remover.Click += new System.EventHandler(this.btn_remover_Click);
             // 
             // cb_cliente
             // 
             this.cb_cliente.FormattingEnabled = true;
             this.cb_cliente.Location = new System.Drawing.Point(373, 140);
             this.cb_cliente.Name = "cb_cliente";
-            this.cb_cliente.Size = new System.Drawing.Size(188, 21);
+            this.cb_cliente.Size = new System.Drawing.Size(118, 21);
             this.cb_cliente.TabIndex = 9;
             this.cb_cliente.SelectedIndexChanged += new System.EventHandler(this.cb_cliente_SelectedIndexChanged);
+            this.cb_cliente.TextChanged += new System.EventHandler(this.cb_cliente_TextChanged);
+            this.cb_cliente.Click += new System.EventHandler(this.cb_cliente_Click);
             // 
             // cb_vendedor
             // 
             this.cb_vendedor.FormattingEnabled = true;
             this.cb_vendedor.Location = new System.Drawing.Point(373, 208);
             this.cb_vendedor.Name = "cb_vendedor";
-            this.cb_vendedor.Size = new System.Drawing.Size(188, 21);
+            this.cb_vendedor.Size = new System.Drawing.Size(118, 21);
             this.cb_vendedor.TabIndex = 10;
             this.cb_vendedor.SelectedIndexChanged += new System.EventHandler(this.cb_vendedor_SelectedIndexChanged);
+            this.cb_vendedor.TextChanged += new System.EventHandler(this.cb_vendedor_TextChanged);
             // 
             // dgv_carrinho
             // 
@@ -192,49 +199,32 @@ namespace clienteC
             this.panel2.Size = new System.Drawing.Size(800, 35);
             this.panel2.TabIndex = 12;
             // 
-            // txt_valortotal
-            // 
-            this.txt_valortotal.Location = new System.Drawing.Point(617, 486);
-            this.txt_valortotal.Name = "txt_valortotal";
-            this.txt_valortotal.ReadOnly = true;
-            this.txt_valortotal.Size = new System.Drawing.Size(165, 20);
-            this.txt_valortotal.TabIndex = 14;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label6.Location = new System.Drawing.Point(275, 422);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label6.Location = new System.Drawing.Point(325, 373);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 21);
+            this.label6.Size = new System.Drawing.Size(53, 15);
             this.label6.TabIndex = 15;
             this.label6.Text = "Produto:";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label7.Location = new System.Drawing.Point(553, 489);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Valor Total:";
-            // 
             // txt_qtd
             // 
-            this.txt_qtd.Location = new System.Drawing.Point(350, 464);
+            this.txt_qtd.Location = new System.Drawing.Point(384, 414);
             this.txt_qtd.Name = "txt_qtd";
-            this.txt_qtd.Size = new System.Drawing.Size(188, 20);
+            this.txt_qtd.Size = new System.Drawing.Size(90, 20);
             this.txt_qtd.TabIndex = 17;
             // 
             // cb_produto
             // 
             this.cb_produto.FormattingEnabled = true;
-            this.cb_produto.Location = new System.Drawing.Point(350, 422);
+            this.cb_produto.Location = new System.Drawing.Point(384, 371);
             this.cb_produto.Name = "cb_produto";
-            this.cb_produto.Size = new System.Drawing.Size(189, 21);
+            this.cb_produto.Size = new System.Drawing.Size(193, 21);
             this.cb_produto.TabIndex = 18;
             this.cb_produto.SelectedIndexChanged += new System.EventHandler(this.cb_produto_SelectedIndexChanged);
+            this.cb_produto.TextChanged += new System.EventHandler(this.cb_produto_TextChanged);
             // 
             // btn_novo
             // 
@@ -259,7 +249,7 @@ namespace clienteC
             // cb_dinheiro
             // 
             this.cb_dinheiro.AutoSize = true;
-            this.cb_dinheiro.Location = new System.Drawing.Point(635, 423);
+            this.cb_dinheiro.Location = new System.Drawing.Point(412, 504);
             this.cb_dinheiro.Name = "cb_dinheiro";
             this.cb_dinheiro.Size = new System.Drawing.Size(65, 17);
             this.cb_dinheiro.TabIndex = 21;
@@ -269,7 +259,7 @@ namespace clienteC
             // cb_cartao
             // 
             this.cb_cartao.AutoSize = true;
-            this.cb_cartao.Location = new System.Drawing.Point(715, 423);
+            this.cb_cartao.Location = new System.Drawing.Point(492, 504);
             this.cb_cartao.Name = "cb_cartao";
             this.cb_cartao.Size = new System.Drawing.Size(57, 17);
             this.cb_cartao.TabIndex = 23;
@@ -280,7 +270,7 @@ namespace clienteC
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.label8.Location = new System.Drawing.Point(632, 400);
+            this.label8.Location = new System.Drawing.Point(409, 481);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(135, 17);
             this.label8.TabIndex = 24;
@@ -289,16 +279,16 @@ namespace clienteC
             // cb_pacelas
             // 
             this.cb_pacelas.FormattingEnabled = true;
-            this.cb_pacelas.Location = new System.Drawing.Point(617, 450);
+            this.cb_pacelas.Location = new System.Drawing.Point(384, 531);
             this.cb_pacelas.Name = "cb_pacelas";
-            this.cb_pacelas.Size = new System.Drawing.Size(165, 21);
+            this.cb_pacelas.Size = new System.Drawing.Size(90, 21);
             this.cb_pacelas.TabIndex = 25;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.label9.Location = new System.Drawing.Point(564, 453);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label9.Location = new System.Drawing.Point(331, 534);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 15);
             this.label9.TabIndex = 26;
@@ -306,7 +296,7 @@ namespace clienteC
             // 
             // btn_pagar
             // 
-            this.btn_pagar.Location = new System.Drawing.Point(654, 512);
+            this.btn_pagar.Location = new System.Drawing.Point(428, 561);
             this.btn_pagar.Name = "btn_pagar";
             this.btn_pagar.Size = new System.Drawing.Size(95, 23);
             this.btn_pagar.TabIndex = 27;
@@ -316,9 +306,9 @@ namespace clienteC
             // 
             // btn_cadastrar
             // 
-            this.btn_cadastrar.Location = new System.Drawing.Point(373, 271);
+            this.btn_cadastrar.Location = new System.Drawing.Point(435, 260);
             this.btn_cadastrar.Name = "btn_cadastrar";
-            this.btn_cadastrar.Size = new System.Drawing.Size(100, 30);
+            this.btn_cadastrar.Size = new System.Drawing.Size(114, 41);
             this.btn_cadastrar.TabIndex = 28;
             this.btn_cadastrar.Text = "Cadastrar";
             this.btn_cadastrar.UseVisualStyleBackColor = true;
@@ -331,6 +321,8 @@ namespace clienteC
             this.dgv_compras.Name = "dgv_compras";
             this.dgv_compras.Size = new System.Drawing.Size(215, 154);
             this.dgv_compras.TabIndex = 29;
+            this.dgv_compras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_compras_CellContentClick);
+            this.dgv_compras.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgv_compras_MouseDoubleClick);
             // 
             // textBox1
             // 
@@ -350,18 +342,58 @@ namespace clienteC
             // 
             // btn_removerProduto
             // 
-            this.btn_removerProduto.Location = new System.Drawing.Point(442, 490);
+            this.btn_removerProduto.Location = new System.Drawing.Point(480, 440);
             this.btn_removerProduto.Name = "btn_removerProduto";
             this.btn_removerProduto.Size = new System.Drawing.Size(100, 30);
             this.btn_removerProduto.TabIndex = 33;
             this.btn_removerProduto.Text = "Remover";
             this.btn_removerProduto.UseVisualStyleBackColor = true;
             // 
+            // txt_idcliente
+            // 
+            this.txt_idcliente.Location = new System.Drawing.Point(498, 140);
+            this.txt_idcliente.Name = "txt_idcliente";
+            this.txt_idcliente.ReadOnly = true;
+            this.txt_idcliente.Size = new System.Drawing.Size(100, 20);
+            this.txt_idcliente.TabIndex = 34;
+            this.txt_idcliente.TextChanged += new System.EventHandler(this.txt_idcliente_TextChanged);
+            // 
+            // txt_idvendedor
+            // 
+            this.txt_idvendedor.Location = new System.Drawing.Point(498, 208);
+            this.txt_idvendedor.Name = "txt_idvendedor";
+            this.txt_idvendedor.ReadOnly = true;
+            this.txt_idvendedor.Size = new System.Drawing.Size(100, 20);
+            this.txt_idvendedor.TabIndex = 35;
+            // 
+            // txt_produtoID
+            // 
+            this.txt_produtoID.Location = new System.Drawing.Point(487, 413);
+            this.txt_produtoID.Name = "txt_produtoID";
+            this.txt_produtoID.ReadOnly = true;
+            this.txt_produtoID.Size = new System.Drawing.Size(90, 20);
+            this.txt_produtoID.TabIndex = 36;
+            // 
+            // txt_valortotal
+            // 
+            this.txt_valortotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
+            this.txt_valortotal.Location = new System.Drawing.Point(487, 532);
+            this.txt_valortotal.Name = "txt_valortotal";
+            this.txt_valortotal.ReadOnly = true;
+            this.txt_valortotal.Size = new System.Drawing.Size(90, 19);
+            this.txt_valortotal.TabIndex = 37;
+            this.txt_valortotal.Text = "Valor Total";
+            this.txt_valortotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txt_valortotal);
+            this.Controls.Add(this.txt_produtoID);
+            this.Controls.Add(this.txt_idvendedor);
+            this.Controls.Add(this.txt_idcliente);
             this.Controls.Add(this.btn_removerProduto);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox1);
@@ -377,9 +409,7 @@ namespace clienteC
             this.Controls.Add(this.btn_novo);
             this.Controls.Add(this.cb_produto);
             this.Controls.Add(this.txt_qtd);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txt_valortotal);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgv_carrinho);
             this.Controls.Add(this.cb_vendedor);
@@ -421,9 +451,7 @@ namespace clienteC
         private System.Windows.Forms.ComboBox cb_vendedor;
         private System.Windows.Forms.DataGridView dgv_carrinho;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txt_valortotal;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown txt_qtd;
         private System.Windows.Forms.ComboBox cb_produto;
         private System.Windows.Forms.Button btn_novo;
@@ -439,5 +467,9 @@ namespace clienteC
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btn_removerProduto;
+        private System.Windows.Forms.TextBox txt_idcliente;
+        private System.Windows.Forms.TextBox txt_idvendedor;
+        private System.Windows.Forms.TextBox txt_produtoID;
+        private System.Windows.Forms.TextBox txt_valortotal;
     }
 }

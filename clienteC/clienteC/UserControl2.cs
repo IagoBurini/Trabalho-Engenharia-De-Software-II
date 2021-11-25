@@ -389,12 +389,12 @@ namespace clienteC
                     {
                         try
                         {
-                            string nome = txtNome.Text;
+                            string id = dgv_Mostrar.SelectedRows[0].Cells[0].Value.ToString();
                             cn.Open();
-                            string strSql = "delete from produtos where nome=@nome";
+                            string strSql = "delete from produtos where id=@id";
                             cm.CommandText = strSql;
                             cm.Connection = cn;
-                            cm.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = nome;
+                            cm.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
 
 
                             cm.ExecuteNonQuery();

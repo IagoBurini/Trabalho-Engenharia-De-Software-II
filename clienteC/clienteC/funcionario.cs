@@ -152,12 +152,12 @@ namespace clienteC
                 {
                     try
                     {
-                        string cpf = txtCpfF.Text;
+                        string id = dgvF.SelectedRows[0].Cells[0].Value.ToString();
                         cn.Open();
-                        string strSql = "delete from funcionarios where cpf=@cpf";
+                        string strSql = "delete from funcionarios where id=@id";
                         cm.CommandText = strSql;
                         cm.Connection = cn;
-                        cm.Parameters.Add("@cpf", System.Data.SqlDbType.VarChar).Value = cpf;
+                        cm.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
 
 
                         cm.ExecuteNonQuery();

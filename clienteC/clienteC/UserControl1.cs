@@ -369,12 +369,12 @@ namespace clienteC
                 {
                     try
                     {
-                        string cpf = TxtCpf.Text;
+                        string id = DgvFunc.SelectedRows[0].Cells[0].Value.ToString();
                         cn.Open();
-                        string strSql = "delete from cliente where cpf=@cpf";
+                        string strSql = "delete from cliente where id=@id";
                         cm.CommandText = strSql;
                         cm.Connection = cn;
-                        cm.Parameters.Add("@cpf", System.Data.SqlDbType.VarChar).Value = cpf;
+                        cm.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
 
                         
                         cm.ExecuteNonQuery();
