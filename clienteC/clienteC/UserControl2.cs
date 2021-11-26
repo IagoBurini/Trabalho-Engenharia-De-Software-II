@@ -20,7 +20,7 @@ namespace clienteC
 
         //ESTABELECENDO CONEXAO COM O BANCO DE DADOS 
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS;Database=trab ;User Id=sa ;Password = 12345; ");
 
         SqlCommand cm = new SqlCommand();
 
@@ -112,7 +112,7 @@ namespace clienteC
             txtNome.Focus();
 
         }
-        private void UserControl2_Load(object sender, EventArgs e)
+        public void UserControl2_Load(object sender, EventArgs e)
         {
             DesabilitaCampos();
             MostrarTodosProdutos();

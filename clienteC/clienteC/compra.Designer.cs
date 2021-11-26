@@ -55,13 +55,15 @@ namespace clienteC
             this.btn_pagar = new System.Windows.Forms.Button();
             this.btn_cadastrar = new System.Windows.Forms.Button();
             this.dgv_compras = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_pesquisarCompra = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btn_removerProduto = new System.Windows.Forms.Button();
             this.txt_idcliente = new System.Windows.Forms.TextBox();
             this.txt_idvendedor = new System.Windows.Forms.TextBox();
             this.txt_produtoID = new System.Windows.Forms.TextBox();
             this.txt_valortotal = new System.Windows.Forms.TextBox();
+            this.txt_valoritem = new System.Windows.Forms.TextBox();
+            this.txt_valorunidade = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_carrinho)).BeginInit();
             this.panel2.SuspendLayout();
@@ -135,12 +137,13 @@ namespace clienteC
             // 
             // btn_adicionar
             // 
-            this.btn_adicionar.Location = new System.Drawing.Point(374, 440);
+            this.btn_adicionar.Location = new System.Drawing.Point(384, 440);
             this.btn_adicionar.Name = "btn_adicionar";
-            this.btn_adicionar.Size = new System.Drawing.Size(100, 30);
+            this.btn_adicionar.Size = new System.Drawing.Size(93, 30);
             this.btn_adicionar.TabIndex = 6;
             this.btn_adicionar.Text = "Adicionar";
             this.btn_adicionar.UseVisualStyleBackColor = true;
+            this.btn_adicionar.Click += new System.EventHandler(this.btn_adicionar_Click);
             // 
             // btn_editar
             // 
@@ -150,6 +153,7 @@ namespace clienteC
             this.btn_editar.TabIndex = 7;
             this.btn_editar.Text = "Editar";
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_remover
             // 
@@ -191,6 +195,7 @@ namespace clienteC
             this.dgv_carrinho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_carrinho.Size = new System.Drawing.Size(215, 231);
             this.dgv_carrinho.TabIndex = 11;
+            this.dgv_carrinho.DoubleClick += new System.EventHandler(this.dgv_carrinho_DoubleClick);
             // 
             // panel2
             // 
@@ -205,7 +210,7 @@ namespace clienteC
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label6.Location = new System.Drawing.Point(325, 373);
+            this.label6.Location = new System.Drawing.Point(325, 364);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 15);
             this.label6.TabIndex = 15;
@@ -215,13 +220,15 @@ namespace clienteC
             // 
             this.txt_qtd.Location = new System.Drawing.Point(384, 414);
             this.txt_qtd.Name = "txt_qtd";
-            this.txt_qtd.Size = new System.Drawing.Size(90, 20);
+            this.txt_qtd.Size = new System.Drawing.Size(93, 20);
             this.txt_qtd.TabIndex = 17;
+            this.txt_qtd.ValueChanged += new System.EventHandler(this.txt_qtd_ValueChanged);
+            this.txt_qtd.Click += new System.EventHandler(this.txt_qtd_Click);
             // 
             // cb_produto
             // 
             this.cb_produto.FormattingEnabled = true;
-            this.cb_produto.Location = new System.Drawing.Point(384, 371);
+            this.cb_produto.Location = new System.Drawing.Point(384, 362);
             this.cb_produto.Name = "cb_produto";
             this.cb_produto.Size = new System.Drawing.Size(193, 21);
             this.cb_produto.TabIndex = 18;
@@ -257,6 +264,8 @@ namespace clienteC
             this.cb_dinheiro.TabIndex = 21;
             this.cb_dinheiro.Text = "Dinheiro";
             this.cb_dinheiro.UseVisualStyleBackColor = true;
+            this.cb_dinheiro.CheckedChanged += new System.EventHandler(this.cb_dinheiro_CheckedChanged);
+            this.cb_dinheiro.Click += new System.EventHandler(this.cb_dinheiro_Click);
             // 
             // cb_cartao
             // 
@@ -267,6 +276,8 @@ namespace clienteC
             this.cb_cartao.TabIndex = 23;
             this.cb_cartao.Text = "Cartão";
             this.cb_cartao.UseVisualStyleBackColor = true;
+            this.cb_cartao.CheckedChanged += new System.EventHandler(this.cb_cartao_CheckedChanged);
+            this.cb_cartao.Click += new System.EventHandler(this.cb_cartao_Click);
             // 
             // label8
             // 
@@ -281,7 +292,7 @@ namespace clienteC
             // cb_pacelas
             // 
             this.cb_pacelas.FormattingEnabled = true;
-            this.cb_pacelas.Location = new System.Drawing.Point(384, 531);
+            this.cb_pacelas.Location = new System.Drawing.Point(390, 530);
             this.cb_pacelas.Name = "cb_pacelas";
             this.cb_pacelas.Size = new System.Drawing.Size(90, 21);
             this.cb_pacelas.TabIndex = 25;
@@ -290,7 +301,7 @@ namespace clienteC
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label9.Location = new System.Drawing.Point(331, 534);
+            this.label9.Location = new System.Drawing.Point(331, 532);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 15);
             this.label9.TabIndex = 26;
@@ -328,12 +339,17 @@ namespace clienteC
             this.dgv_compras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_compras_CellContentClick);
             this.dgv_compras.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgv_compras_MouseDoubleClick);
             // 
-            // textBox1
+            // txt_pesquisarCompra
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 121);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(116, 20);
-            this.textBox1.TabIndex = 30;
+            this.txt_pesquisarCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
+            this.txt_pesquisarCompra.Location = new System.Drawing.Point(124, 122);
+            this.txt_pesquisarCompra.Name = "txt_pesquisarCompra";
+            this.txt_pesquisarCompra.Size = new System.Drawing.Size(116, 19);
+            this.txt_pesquisarCompra.TabIndex = 30;
+            this.txt_pesquisarCompra.Text = "ID Compra";
+            this.txt_pesquisarCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_pesquisarCompra.Click += new System.EventHandler(this.txt_pesquisarCompra_Click);
+            this.txt_pesquisarCompra.TextChanged += new System.EventHandler(this.txt_pesquisarCompra_TextChanged);
             // 
             // label10
             // 
@@ -346,61 +362,96 @@ namespace clienteC
             // 
             // btn_removerProduto
             // 
-            this.btn_removerProduto.Location = new System.Drawing.Point(480, 440);
+            this.btn_removerProduto.Location = new System.Drawing.Point(487, 440);
             this.btn_removerProduto.Name = "btn_removerProduto";
-            this.btn_removerProduto.Size = new System.Drawing.Size(100, 30);
+            this.btn_removerProduto.Size = new System.Drawing.Size(90, 30);
             this.btn_removerProduto.TabIndex = 33;
             this.btn_removerProduto.Text = "Remover";
             this.btn_removerProduto.UseVisualStyleBackColor = true;
+            this.btn_removerProduto.Click += new System.EventHandler(this.btn_removerProduto_Click);
             // 
             // txt_idcliente
             // 
-            this.txt_idcliente.Location = new System.Drawing.Point(498, 140);
+            this.txt_idcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
+            this.txt_idcliente.Location = new System.Drawing.Point(498, 141);
             this.txt_idcliente.Name = "txt_idcliente";
             this.txt_idcliente.ReadOnly = true;
-            this.txt_idcliente.Size = new System.Drawing.Size(100, 20);
+            this.txt_idcliente.Size = new System.Drawing.Size(100, 19);
             this.txt_idcliente.TabIndex = 34;
+            this.txt_idcliente.Text = "ID Cliente";
+            this.txt_idcliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_idcliente.TextChanged += new System.EventHandler(this.txt_idcliente_TextChanged);
             // 
             // txt_idvendedor
             // 
-            this.txt_idvendedor.Location = new System.Drawing.Point(498, 208);
+            this.txt_idvendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
+            this.txt_idvendedor.Location = new System.Drawing.Point(498, 209);
             this.txt_idvendedor.Name = "txt_idvendedor";
             this.txt_idvendedor.ReadOnly = true;
-            this.txt_idvendedor.Size = new System.Drawing.Size(100, 20);
+            this.txt_idvendedor.Size = new System.Drawing.Size(100, 19);
             this.txt_idvendedor.TabIndex = 35;
+            this.txt_idvendedor.Text = "ID Vendedor";
+            this.txt_idvendedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_produtoID
             // 
-            this.txt_produtoID.Location = new System.Drawing.Point(487, 413);
+            this.txt_produtoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
+            this.txt_produtoID.Location = new System.Drawing.Point(487, 389);
             this.txt_produtoID.Name = "txt_produtoID";
             this.txt_produtoID.ReadOnly = true;
-            this.txt_produtoID.Size = new System.Drawing.Size(90, 20);
+            this.txt_produtoID.Size = new System.Drawing.Size(90, 19);
             this.txt_produtoID.TabIndex = 36;
+            this.txt_produtoID.Text = "ID Produto";
+            this.txt_produtoID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_valortotal
             // 
             this.txt_valortotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
-            this.txt_valortotal.Location = new System.Drawing.Point(487, 532);
+            this.txt_valortotal.Location = new System.Drawing.Point(487, 530);
             this.txt_valortotal.Name = "txt_valortotal";
             this.txt_valortotal.ReadOnly = true;
             this.txt_valortotal.Size = new System.Drawing.Size(90, 19);
             this.txt_valortotal.TabIndex = 37;
             this.txt_valortotal.Text = "Valor Total";
             this.txt_valortotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_valortotal.TextChanged += new System.EventHandler(this.txt_valortotal_TextChanged);
+            // 
+            // txt_valoritem
+            // 
+            this.txt_valoritem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
+            this.txt_valoritem.Location = new System.Drawing.Point(487, 414);
+            this.txt_valoritem.Name = "txt_valoritem";
+            this.txt_valoritem.ReadOnly = true;
+            this.txt_valoritem.Size = new System.Drawing.Size(90, 19);
+            this.txt_valoritem.TabIndex = 38;
+            this.txt_valoritem.Text = "Valor Item";
+            this.txt_valoritem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_valorunidade
+            // 
+            this.txt_valorunidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
+            this.txt_valorunidade.Location = new System.Drawing.Point(384, 389);
+            this.txt_valorunidade.Name = "txt_valorunidade";
+            this.txt_valorunidade.ReadOnly = true;
+            this.txt_valorunidade.Size = new System.Drawing.Size(93, 19);
+            this.txt_valorunidade.TabIndex = 39;
+            this.txt_valorunidade.Text = "Valor Unidade";
+            this.txt_valorunidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txt_valorunidade);
+            this.Controls.Add(this.txt_valoritem);
             this.Controls.Add(this.txt_valortotal);
             this.Controls.Add(this.txt_produtoID);
             this.Controls.Add(this.txt_idvendedor);
             this.Controls.Add(this.txt_idcliente);
             this.Controls.Add(this.btn_removerProduto);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_pesquisarCompra);
             this.Controls.Add(this.dgv_compras);
             this.Controls.Add(this.btn_cadastrar);
             this.Controls.Add(this.btn_pagar);
@@ -468,12 +519,14 @@ namespace clienteC
         private System.Windows.Forms.Button btn_pagar;
         private System.Windows.Forms.Button btn_cadastrar;
         private System.Windows.Forms.DataGridView dgv_compras;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_pesquisarCompra;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btn_removerProduto;
         private System.Windows.Forms.TextBox txt_idcliente;
         private System.Windows.Forms.TextBox txt_idvendedor;
         private System.Windows.Forms.TextBox txt_produtoID;
         private System.Windows.Forms.TextBox txt_valortotal;
+        private System.Windows.Forms.TextBox txt_valoritem;
+        private System.Windows.Forms.TextBox txt_valorunidade;
     }
 }

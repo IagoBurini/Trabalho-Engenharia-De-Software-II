@@ -48,6 +48,7 @@ namespace clienteC
 
         private void button2_Click(object sender, EventArgs e)
         {
+            userControl11.UserControl1_Load(sender, e);
             userControl11.BringToFront();
             button1.BringToFront();
         }
@@ -59,6 +60,7 @@ namespace clienteC
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            funcionario1.funcionario_Load_1(sender, e);
             funcionario1.BringToFront();
             button1.BringToFront();
         }
@@ -70,12 +72,14 @@ namespace clienteC
 
         private void btnCadastrarProduto_Click(object sender, EventArgs e)
         {
+            userControl21.UserControl2_Load(sender, e);
             userControl21.BringToFront();
             button1.BringToFront();
         }
 
-        private void btn_cadastrarCompra_Click(object sender, EventArgs e)
+        public void btn_cadastrarCompra_Click(object sender, EventArgs e)
         {
+            compra1.compra_Load(sender,e);
             compra1.BringToFront();
             button1.BringToFront();
         }
