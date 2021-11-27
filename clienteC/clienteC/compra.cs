@@ -291,6 +291,7 @@ namespace clienteC
 
         public void preencherParcela()
         {
+            cb_pacelas.Items.Clear();
             cb_pacelas.Items.Add(1);
             cb_pacelas.Items.Add(2);
             cb_pacelas.Items.Add(3);
@@ -592,7 +593,7 @@ namespace clienteC
                 dgv_carrinho.DataSource = dt3;
                 cn.Close();
                 //DgvFunc.DataSource = null;
-                HabilitarCamposItem();
+                //HabilitarCamposItem();
             }
             catch (Exception error)
             {
@@ -789,6 +790,7 @@ namespace clienteC
             txt_qtd.Text = dgv_carrinho.SelectedRows[0].Cells[3].Value.ToString();
             txt_valoritem.Text = "R$ " + dgv_carrinho.SelectedRows[0].Cells[4].Value.ToString();
             manipularDadosCarrinho();
+            HabilitarCamposItem();
 
             // PRODUTO LOGICA PARA MOSTRAR O NOME DO CLIENTE ATRAVES DO ID DELE
 
