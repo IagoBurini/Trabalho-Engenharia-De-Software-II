@@ -337,6 +337,7 @@ namespace clienteC
             this.dgv_compras.Size = new System.Drawing.Size(215, 154);
             this.dgv_compras.TabIndex = 29;
             this.dgv_compras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_compras_CellContentClick);
+            this.dgv_compras.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_compras_MouseClick);
             this.dgv_compras.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgv_compras_MouseDoubleClick);
             // 
             // txt_pesquisarCompra
@@ -403,6 +404,7 @@ namespace clienteC
             this.txt_produtoID.TabIndex = 36;
             this.txt_produtoID.Text = "ID Produto";
             this.txt_produtoID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_produtoID.TextChanged += new System.EventHandler(this.txt_produtoID_TextChanged);
             // 
             // txt_valortotal
             // 
@@ -426,6 +428,7 @@ namespace clienteC
             this.txt_valoritem.TabIndex = 38;
             this.txt_valoritem.Text = "Valor Item";
             this.txt_valoritem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_valoritem.TextChanged += new System.EventHandler(this.txt_valoritem_TextChanged);
             // 
             // txt_valorunidade
             // 

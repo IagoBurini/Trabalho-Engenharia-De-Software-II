@@ -17,7 +17,7 @@ namespace clienteC
             InitializeComponent();
         }
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
         SqlCommand cq = new SqlCommand();
         string idcompra { get; set; }
 
@@ -86,7 +86,53 @@ namespace clienteC
 
         private void btn_pagar_Click(object sender, EventArgs e)
         {
+            if (cb_dinheiro.Text == "")
+            {
+                MessageBox.Show("Você precisa selecionar a forma de pagamento para prosseguir. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_dinheiro.Focus();
+            }
+            else if (cb_cartao.Text == "")
+            {
+                MessageBox.Show("Você precisa selecionar a forma de pagamento para prosseguir. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_cartao.Focus();
+            }
 
+            else
+            {
+                try
+                {
+                    string valortotal = txt_valortotal.Text;
+                   
+
+
+                    string strSql = "insert into compra(valortotal)values(@valortotal)";
+
+                    cq.CommandText = strSql;
+                    cq.Connection = cn;
+
+                    cq.Parameters.Add("@valortotal", System.Data.SqlDbType.Int).Value = valortotal;
+                    
+
+                    
+                    cq.ExecuteNonQuery();
+                    cq.Parameters.Clear();
+
+                    MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                    cn.Close();
+                }
+
+                finally
+                {
+                    cn.Close();
+                    MostrarTodasCompras();
+                }
+
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -114,14 +160,14 @@ namespace clienteC
 
         }
 
-
+     
         private void MostrarTodasCompras()
         {
             try
             {
                 cn.Close();
                 cn.Open();
-                cq.CommandText = "select id as 'ID da Compra',idcliente as 'ID do Cliente',idfuncionarios as 'ID do Funcionario', valortotal as 'Valor Total' from compra";
+                cq.CommandText = "select id as 'Iid da Venda',idcliente as 'Id do Cliente',idfuncionarios as 'Id do Vendedor',formapagamento as 'Forma de Pagamento',valortotal = case when valortotal <= 1000 then  valortotal - (valortotal * 0.03) when valortotal > 1000 then valortotal - (valortotal * 0.05) else valortotal end from compra";
                 cq.Connection = cn;
                 SqlDataAdapter da = new SqlDataAdapter();
 
@@ -206,7 +252,7 @@ namespace clienteC
         {
             //ComboBox Funcionário
             cb_vendedor.Items.Clear();
-            cn.Open();
+         
             cq.Connection = cn;
             cq.CommandText = "select * from funcionarios";
             cq.CommandType = CommandType.Text;
@@ -528,54 +574,7 @@ namespace clienteC
             idcompra = dgv_compras.SelectedRows[0].Cells[0].Value.ToString();
             manipularDadosC();
 
-            // Cliente LOGICA PARA MOSTRAR O NOME DO CLIENTE ATRAVES DO ID DELE
-
-            int vrIDcliente;
-            int.TryParse(txt_idcliente.Text, out vrIDcliente);
-            cn.Close();
-                cn.Open();
-                cq.Connection = cn;
-                cq.CommandType = CommandType.Text;
-                cq.CommandText = "select * from cliente";
-                SqlDataAdapter da = new SqlDataAdapter();
-
-                var ds = new DataSet();
-
-
-                da.SelectCommand = cq;
-                da.Fill(ds);
-  
-                DataTable dtDatabases = ds.Tables[0];
-                string nomeCliente = (from DataRow dr in dtDatabases.Rows
-                                      where (int)dr["id"] == vrIDcliente
-                                      select (string)dr["nome"]).FirstOrDefault();
-                cb_cliente.Text = nomeCliente;
-            cn.Close();
-            //////////////////////////////////////////////////////////////////////
-            ///
-            // fUNCIONARIO LOGICA PARA MOSTRAR O NOME DO CLIENTE ATRAVES DO ID DELE
-
-            int vrIDfuncionario;
-            int.TryParse(txt_idvendedor.Text, out vrIDfuncionario);
-            cn.Close();
-            cn.Open();
-            cq.Connection = cn;
-            cq.CommandType = CommandType.Text;
-            cq.CommandText = "select * from funcionarios";
-            SqlDataAdapter daf = new SqlDataAdapter();
-
-            var dsf = new DataSet();
-
-
-            da.SelectCommand = cq;
-            da.Fill(ds);
-
-            DataTable dtDatabasesf = ds.Tables[0];
-            string nomeFuncionario = (from DataRow dr in dtDatabases.Rows
-                                  where (int)dr["id"] == vrIDfuncionario
-                                  select (string)dr["nome"]).FirstOrDefault();
-            cb_vendedor.Text = nomeFuncionario;
-            cn.Close();
+           
             //////////////////////////////////////////////////////////////////////
             ///
             try
@@ -602,6 +601,7 @@ namespace clienteC
         }
         private void dgv_compras_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            DesabilitaCamposC();
             carregaCompra();
         }
 
@@ -713,21 +713,25 @@ namespace clienteC
             {
                 try
                 {
+
+                   
                     string idproduto = txt_produtoID.Text;
-                    decimal quantidade = txt_qtd.Value;
+                    string quantidade = txt_qtd.Text;
                     string valoritem = txt_valoritem.Text;
 
-                    string strSql = "insert into item(idproduto,idcompra,qtditem,valoritem)values(@idproduto, @idcompra, @quantidade, @valoritem where idcompra like ('%" + idcompra + "%'))";
 
-                     cq.CommandText = strSql;
+
+                    string strSql = "insert into item(idproduto,idcompra,qtditem,valoritem)values(@idproduto, @idcompra, @qtditem, @valoritem)";
+                    cq.CommandText = strSql;
+              
                     cq.Connection = cn;
-
+                  
                     cq.Parameters.Add("@idproduto", System.Data.SqlDbType.Int).Value = idproduto;
-                    cq.Parameters.Add("@idcompra", System.Data.SqlDbType.VarChar).Value = idcompra;
-                    cq.Parameters.Add("@quantidade", System.Data.SqlDbType.Int).Value = quantidade;
-                    cq.Parameters.Add("@valoritem", System.Data.SqlDbType.Int).Value = valoritem;
+                    cq.Parameters.Add("@idcompra", System.Data.SqlDbType.Int).Value = idcompra;
+                    cq.Parameters.Add("@qtditem", System.Data.SqlDbType.Int).Value = quantidade;
+                    cq.Parameters.Add("@valoritem", System.Data.SqlDbType.Float).Value = valoritem;
 
-                    cn.Open();
+                   
                     cq.ExecuteNonQuery();
                     cq.Parameters.Clear();
 
@@ -757,6 +761,22 @@ namespace clienteC
                 btn_pagar.Enabled = true;
                 cb_cartao.Checked = false;
                 cb_pacelas.Enabled = false;
+
+                string formapagamento = "Dinheiro";
+               
+
+                string strSql = "insert into compra(formapagamento)values(@formapagamento)";
+                cq.Parameters.Add("@formapagamento", System.Data.SqlDbType.VarChar).Value = formapagamento;
+                cq.CommandText = strSql;
+                cq.Connection = cn;
+
+                
+             
+               
+
+                cn.Open();
+                cq.ExecuteNonQuery();
+                cq.Parameters.Clear();
             }
             else
             {
@@ -768,9 +788,28 @@ namespace clienteC
         {
             if (cb_cartao.Checked)
             {
+
                 btn_pagar.Enabled = true;
                 cb_dinheiro.Checked = false;
                 cb_pacelas.Enabled = true;
+
+                string formapagamento = "Cartão";
+
+
+                string strSql = "insert into compra(formapagamento)values(@formapagamento)";
+                cq.Parameters.Add("@formapagamento", System.Data.SqlDbType.VarChar).Value = formapagamento;
+                cq.CommandText = strSql;
+                cq.Connection = cn;
+
+
+
+
+
+                cn.Open();
+                cq.ExecuteNonQuery();
+                cq.Parameters.Clear();
+
+               
             }
             else
             {
@@ -832,18 +871,22 @@ namespace clienteC
         {
             cn.Close();
             cn.Open();
+            string valoritem = txt_valoritem.Text;
             cq.Connection = cn;
-            cq.CommandText = "select sum(valoritem) from item where idcompra like ('%" + idcompra + "%')";
+            string strSql =  "select sum(valoritem) from item where idcompra like ('%" + idcompra + "%')";
+            cq.CommandText = strSql;
+            
             cq.CommandType = CommandType.Text;
+            cq.Parameters.Add("@valoritem", System.Data.SqlDbType.Decimal).Value =decimal.Parse(valoritem);
             SqlDataAdapter da2 = new SqlDataAdapter();
             var ds2 = new DataSet();
             da2.SelectCommand = cq;
             da2.Fill(ds2);
             DataTable dtDatabases3 = ds2.Tables[0];
             txt_valortotal.Text = ds2.Tables[0].Rows[0][0].ToString();
-            cn.Close();
+            
             //DgvFunc.DataSource = null;
-            HabilitarCamposItem();
+            
         }
 
         private void btn_removerProduto_Click(object sender, EventArgs e)
@@ -933,9 +976,79 @@ namespace clienteC
             da2.Fill(ds2);
             DataTable dtDatabases3 = ds2.Tables[0];
             txt_valortotal.Text = ds2.Tables[0].Rows[0][0].ToString();
+ 
+            cq.Parameters.Clear();
             cn.Close();
             //DgvFunc.DataSource = null;
             HabilitarCamposItem();
+            
+        }
+
+        private void txt_produtoID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void dgv_compras_MouseClick(object sender, MouseEventArgs e)
+        {
+            // Cliente LOGICA PARA MOSTRAR O NOME DO CLIENTE ATRAVES DO ID DELE
+            int vrIDfuncionario;
+            int.TryParse(txt_idvendedor.Text, out vrIDfuncionario);
+            cn.Close();
+            cn.Open();
+            cq.Connection = cn;
+            cq.CommandType = CommandType.Text;
+            cq.CommandText = "select * from funcionarios";
+            SqlDataAdapter daf = new SqlDataAdapter();
+
+            var dsf = new DataSet();
+
+
+            daf.SelectCommand = cq;
+            daf.Fill(dsf);
+
+            DataTable dtDatabasesf = dsf.Tables[0];
+            string nomeFuncionario = (from DataRow dr1 in dtDatabasesf.Rows
+                                      where (int)dr1["id"] == vrIDfuncionario
+                                      select (string)dr1["nome"]).FirstOrDefault();
+            cb_vendedor.Text = nomeFuncionario;
+            cn.Close();
+            
+
+
+            //////////////////////////////////////////////////////////////////////
+           
+          // fUNCIONARIO LOGICA PARA MOSTRAR O NOME DO FUNCIONARIO ATRAVES DO ID DELE
+
+
+            int vrIDcliente;
+            int.TryParse(txt_idcliente.Text, out vrIDcliente);
+            cn.Close();
+            cn.Open();
+            cq.Connection = cn;
+            cq.CommandType = CommandType.Text;
+            cq.CommandText = "select * from cliente";
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            var ds = new DataSet();
+
+
+            da.SelectCommand = cq;
+            da.Fill(ds);
+
+            DataTable dtDatabases = ds.Tables[0];
+            string nomeCliente = (from DataRow dr in dtDatabases.Rows
+                                  where (int)dr["id"] == vrIDcliente
+                                  select (string)dr["nome"]).FirstOrDefault();
+            cb_cliente.Text = nomeCliente;
+            cn.Close();
+        }
+
+        private void txt_valoritem_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
