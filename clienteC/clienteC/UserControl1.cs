@@ -372,7 +372,6 @@ namespace clienteC
                         cn.Open();
                         string id = DgvFunc.SelectedRows[0].Cells[0].Value.ToString();
                         cm.Connection = cn;
-                        //int existeCompra = (new SqlCommand("SELECT CASE WHEN EXISTS(SELECT * FROM[compra] WHERE idcliente = " + id + ") THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END").ExecuteScalar());
                         cm.CommandText = "SELECT CASE WHEN EXISTS(SELECT * FROM[compra] WHERE idcliente = " + id + ") THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END";
 
                         cm.CommandType = CommandType.Text;
@@ -382,7 +381,6 @@ namespace clienteC
                         da.Fill(ds);
                         DataTable dtDatabases = ds.Tables[0];
                         cn.Close();
-                        testbox.Text = ds.Tables[0].Rows[0][0].ToString();
 
                         if (ds.Tables[0].Rows[0][0].ToString() == "True")
                         {
