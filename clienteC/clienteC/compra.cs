@@ -460,18 +460,43 @@ namespace clienteC
                 {
                     try
                     {
-                        string id = dgv_compras.SelectedRows[0].Cells[0].Value.ToString();
                         cn.Open();
-                        string strSql = "delete from compra where id=@id";
-                        cq.CommandText = strSql;
+                        string id = dgv_compras.SelectedRows[0].Cells[0].Value.ToString();
                         cq.Connection = cn;
-                        cq.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
+                        cq.CommandText = "SELECT CASE WHEN EXISTS(SELECT * FROM[item] WHERE idcompra = " + id + ") THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END";
+
+                        cq.CommandType = CommandType.Text;
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        var ds = new DataSet();
+                        da.SelectCommand = cq;
+                        da.Fill(ds);
+                        DataTable dtDatabases = ds.Tables[0];
+                        cn.Close();
+
+                        if (ds.Tables[0].Rows[0][0].ToString() == "True")
+                        {
+                            DialogResult existeCompraAv = MessageBox.Show("Não foi possivel remover Compra pois eles está associado a um item", "Exclusão de Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (existeCompraAv == DialogResult.OK)
+                            {
+                                return;
+                            }
+                        }
+                        else 
+                        {
+                            cn.Open();
+                            string strSql = "delete from compra where id=@id";
+                            cq.CommandText = strSql;
+                            cq.Connection = cn;
+                            cq.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
 
 
-                        cq.ExecuteNonQuery();
-                        cq.Parameters.Clear();
-                        LimparCamposCompras();
-                        MessageBox.Show("Os dados foram removidos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            cq.ExecuteNonQuery();
+                            cq.Parameters.Clear();
+                            LimparCamposCompras();
+                            MessageBox.Show("Os dados foram removidos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                       
                     }
 
                     catch (Exception error)

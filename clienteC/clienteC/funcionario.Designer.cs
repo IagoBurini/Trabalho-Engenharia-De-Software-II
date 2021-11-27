@@ -134,7 +134,7 @@
             this.txtNomeF.Location = new System.Drawing.Point(300, 139);
             this.txtNomeF.MaxLength = 40;
             this.txtNomeF.Name = "txtNomeF";
-            this.txtNomeF.Size = new System.Drawing.Size(195, 20);
+            this.txtNomeF.Size = new System.Drawing.Size(222, 20);
             this.txtNomeF.TabIndex = 17;
             this.txtNomeF.TextChanged += new System.EventHandler(this.txtNomeF_TextChanged);
             // 
@@ -143,7 +143,7 @@
             this.txtTelefoneF.Location = new System.Drawing.Point(300, 182);
             this.txtTelefoneF.MaxLength = 14;
             this.txtTelefoneF.Name = "txtTelefoneF";
-            this.txtTelefoneF.Size = new System.Drawing.Size(195, 20);
+            this.txtTelefoneF.Size = new System.Drawing.Size(222, 20);
             this.txtTelefoneF.TabIndex = 18;
             this.txtTelefoneF.TextChanged += new System.EventHandler(this.txtTelefoneF_TextChanged);
             // 
@@ -152,7 +152,7 @@
             this.txtCpfF.Location = new System.Drawing.Point(300, 224);
             this.txtCpfF.MaxLength = 13;
             this.txtCpfF.Name = "txtCpfF";
-            this.txtCpfF.Size = new System.Drawing.Size(195, 20);
+            this.txtCpfF.Size = new System.Drawing.Size(222, 20);
             this.txtCpfF.TabIndex = 19;
             // 
             // txtEnderecoF
@@ -161,7 +161,7 @@
             this.txtEnderecoF.MaxLength = 100;
             this.txtEnderecoF.Multiline = true;
             this.txtEnderecoF.Name = "txtEnderecoF";
-            this.txtEnderecoF.Size = new System.Drawing.Size(195, 54);
+            this.txtEnderecoF.Size = new System.Drawing.Size(222, 60);
             this.txtEnderecoF.TabIndex = 20;
             // 
             // novoFunc

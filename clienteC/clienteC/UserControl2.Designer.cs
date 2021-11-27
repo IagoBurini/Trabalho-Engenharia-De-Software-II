@@ -65,7 +65,7 @@ namespace clienteC
             // 
             // btn_novo
             // 
-            this.btn_novo.Location = new System.Drawing.Point(663, 152);
+            this.btn_novo.Location = new System.Drawing.Point(663, 137);
             this.btn_novo.Name = "btn_novo";
             this.btn_novo.Size = new System.Drawing.Size(100, 30);
             this.btn_novo.TabIndex = 0;
@@ -75,7 +75,7 @@ namespace clienteC
             // 
             // btn_remover
             // 
-            this.btn_remover.Location = new System.Drawing.Point(663, 212);
+            this.btn_remover.Location = new System.Drawing.Point(663, 197);
             this.btn_remover.Name = "btn_remover";
             this.btn_remover.Size = new System.Drawing.Size(100, 30);
             this.btn_remover.TabIndex = 1;
@@ -85,7 +85,7 @@ namespace clienteC
             // 
             // btn_editar
             // 
-            this.btn_editar.Location = new System.Drawing.Point(663, 272);
+            this.btn_editar.Location = new System.Drawing.Point(663, 257);
             this.btn_editar.Name = "btn_editar";
             this.btn_editar.Size = new System.Drawing.Size(100, 30);
             this.btn_editar.TabIndex = 2;
@@ -95,7 +95,7 @@ namespace clienteC
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(663, 332);
+            this.btn_cancelar.Location = new System.Drawing.Point(663, 317);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(100, 30);
             this.btn_cancelar.TabIndex = 3;
@@ -107,7 +107,7 @@ namespace clienteC
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(223, 134);
+            this.label1.Location = new System.Drawing.Point(223, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 25);
             this.label1.TabIndex = 5;
@@ -117,7 +117,7 @@ namespace clienteC
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(229, 180);
+            this.label2.Location = new System.Drawing.Point(229, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 25);
             this.label2.TabIndex = 6;
@@ -127,7 +127,7 @@ namespace clienteC
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(173, 223);
+            this.label3.Location = new System.Drawing.Point(173, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 25);
             this.label3.TabIndex = 7;
@@ -137,7 +137,7 @@ namespace clienteC
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(192, 264);
+            this.label4.Location = new System.Drawing.Point(192, 249);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 25);
             this.label4.TabIndex = 8;
@@ -145,7 +145,7 @@ namespace clienteC
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(300, 139);
+            this.txtNome.Location = new System.Drawing.Point(300, 124);
             this.txtNome.MaxLength = 40;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(220, 20);
@@ -153,7 +153,7 @@ namespace clienteC
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(300, 269);
+            this.txtDesc.Location = new System.Drawing.Point(300, 254);
             this.txtDesc.MaxLength = 200;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(220, 20);
@@ -182,11 +182,11 @@ namespace clienteC
             // dgv_Mostrar
             // 
             this.dgv_Mostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Mostrar.Location = new System.Drawing.Point(197, 507);
+            this.dgv_Mostrar.Location = new System.Drawing.Point(197, 491);
             this.dgv_Mostrar.MultiSelect = false;
             this.dgv_Mostrar.Name = "dgv_Mostrar";
             this.dgv_Mostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Mostrar.Size = new System.Drawing.Size(365, 87);
+            this.dgv_Mostrar.Size = new System.Drawing.Size(365, 103);
             this.dgv_Mostrar.TabIndex = 14;
             this.dgv_Mostrar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Mostrar_CellContentClick);
             this.dgv_Mostrar.DoubleClick += new System.EventHandler(this.dgv_Mostrar_DoubleClick);
@@ -196,7 +196,7 @@ namespace clienteC
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.Location = new System.Drawing.Point(194, 462);
+            this.label5.Location = new System.Drawing.Point(194, 445);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(179, 17);
             this.label5.TabIndex = 15;
@@ -204,15 +204,15 @@ namespace clienteC
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(197, 482);
+            this.txtBuscar.Location = new System.Drawing.Point(197, 465);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(323, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(365, 20);
             this.txtBuscar.TabIndex = 16;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // btn_salvar
             // 
-            this.btn_salvar.Location = new System.Drawing.Point(305, 385);
+            this.btn_salvar.Location = new System.Drawing.Point(305, 370);
             this.btn_salvar.Name = "btn_salvar";
             this.btn_salvar.Size = new System.Drawing.Size(75, 23);
             this.btn_salvar.TabIndex = 17;
@@ -224,7 +224,7 @@ namespace clienteC
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(132, 305);
+            this.label7.Location = new System.Drawing.Point(132, 290);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(162, 25);
             this.label7.TabIndex = 18;
@@ -234,7 +234,7 @@ namespace clienteC
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(201, 351);
+            this.label8.Location = new System.Drawing.Point(201, 336);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 25);
             this.label8.TabIndex = 19;
@@ -244,7 +244,7 @@ namespace clienteC
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkRed;
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(0, 414);
+            this.panel2.Location = new System.Drawing.Point(0, 399);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 35);
             this.panel2.TabIndex = 20;
@@ -267,14 +267,14 @@ namespace clienteC
             // dtpValidade
             // 
             this.dtpValidade.CustomFormat = "dd-MM-yyyy";
-            this.dtpValidade.Location = new System.Drawing.Point(300, 354);
+            this.dtpValidade.Location = new System.Drawing.Point(300, 339);
             this.dtpValidade.Name = "dtpValidade";
             this.dtpValidade.Size = new System.Drawing.Size(220, 20);
             this.dtpValidade.TabIndex = 6;
             // 
             // txtQtd
             // 
-            this.txtQtd.Location = new System.Drawing.Point(300, 228);
+            this.txtQtd.Location = new System.Drawing.Point(300, 213);
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(220, 20);
             this.txtQtd.TabIndex = 21;
@@ -282,14 +282,14 @@ namespace clienteC
             // txtValor
             // 
             this.txtValor.DecimalPlaces = 2;
-            this.txtValor.Location = new System.Drawing.Point(300, 185);
+            this.txtValor.Location = new System.Drawing.Point(300, 170);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(220, 20);
             this.txtValor.TabIndex = 22;
             // 
             // txtEstoqMin
             // 
-            this.txtEstoqMin.Location = new System.Drawing.Point(300, 310);
+            this.txtEstoqMin.Location = new System.Drawing.Point(300, 295);
             this.txtEstoqMin.Name = "txtEstoqMin";
             this.txtEstoqMin.Size = new System.Drawing.Size(220, 20);
             this.txtEstoqMin.TabIndex = 23;

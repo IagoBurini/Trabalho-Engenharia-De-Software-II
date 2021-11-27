@@ -152,18 +152,42 @@ namespace clienteC
                 {
                     try
                     {
-                        string id = dgvF.SelectedRows[0].Cells[0].Value.ToString();
                         cn.Open();
-                        string strSql = "delete from funcionarios where id=@id";
-                        cm.CommandText = strSql;
+                        string id = dgvF.SelectedRows[0].Cells[0].Value.ToString();
                         cm.Connection = cn;
-                        cm.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
+                        cm.CommandText = "SELECT CASE WHEN EXISTS(SELECT * FROM[compra] WHERE idfuncionarios = " + id + ") THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END";
+
+                        cm.CommandType = CommandType.Text;
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        var ds = new DataSet();
+                        da.SelectCommand = cm;
+                        da.Fill(ds);
+                        DataTable dtDatabases = ds.Tables[0];
+                        cn.Close();
+
+                        if (ds.Tables[0].Rows[0][0].ToString() == "True")
+                        {
+                            DialogResult existeCompraAv = MessageBox.Show("Não foi possivel remover funcionario pois eles está associado a uma compra", "Exclusão de Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (existeCompraAv == DialogResult.OK)
+                            {
+                                return;
+                            }
+                        }
+                        else 
+                        {
+                            cn.Open();
+                            string strSql = "delete from funcionarios where id=@id";
+                            cm.CommandText = strSql;
+                            cm.Connection = cn;
+                            cm.Parameters.Add("@id", System.Data.SqlDbType.VarChar).Value = id;
 
 
-                        cm.ExecuteNonQuery();
-                        cm.Parameters.Clear();
-                        LimparCamposF();
-                        MessageBox.Show("Os dados foram removidos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            cm.ExecuteNonQuery();
+                            cm.Parameters.Clear();
+                            LimparCamposF();
+                            MessageBox.Show("Os dados foram removidos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        
                     }
                     catch (Exception erro)
                     {
