@@ -24,6 +24,8 @@ namespace clienteC
 
         SqlCommand cm = new SqlCommand();
 
+
+
         SqlDataReader dt;
 
         
@@ -91,9 +93,10 @@ namespace clienteC
             try
             {
                 cn.Open();
-                cm.CommandText = "select * from funcionarios";
+                cm.CommandText = "select funcionarios.id, nome, funcionarios.endereco, funcionarios.cpf, funcionarios.telefone, sum(valortotal) as valortotal, salario = case when sum(valortotal) <= 10000 then salario +(salario * 0.05) when sum(valortotal) > 10000 then salario +(salario * 0.07) else salario end from compra, funcionarios where compra.idfuncionarios = funcionarios.id group by funcionarios.id, nome, endereco,cpf,telefone, salario,valortotal"; ;
                 cm.Connection = cn;
                 SqlDataAdapter da = new SqlDataAdapter();
+
 
                 DataTable dt = new DataTable();
 

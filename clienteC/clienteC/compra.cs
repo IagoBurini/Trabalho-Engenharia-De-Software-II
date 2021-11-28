@@ -21,6 +21,7 @@ namespace clienteC
         SqlCommand cq = new SqlCommand();
         string idcompra { get; set; }
 
+
         SqlDataReader dt;
 
         private void HabilitaCamposC()
@@ -86,26 +87,16 @@ namespace clienteC
 
         private void btn_pagar_Click(object sender, EventArgs e)
         {
-            if (cb_dinheiro.Text == "")
-            {
-                MessageBox.Show("Você precisa selecionar a forma de pagamento para prosseguir. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cb_dinheiro.Focus();
-            }
-            else if (cb_cartao.Text == "")
-            {
-                MessageBox.Show("Você precisa selecionar a forma de pagamento para prosseguir. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cb_cartao.Focus();
-            }
 
-            else
-            {
+           
+            
                 try
                 {
                     string valortotal = txt_valortotal.Text;
                    
 
 
-                    string strSql = "insert into compra(valortotal)values(@valortotal)";
+                    string strSql = "update compra set valortotal = (select isnull(sum(valoritem), 0) from item where compra.id = item.idcompra) from compra";
 
                     cq.CommandText = strSql;
                     cq.Connection = cn;
@@ -132,7 +123,7 @@ namespace clienteC
                     MostrarTodasCompras();
                 }
 
-            }
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -167,7 +158,7 @@ namespace clienteC
             {
                 cn.Close();
                 cn.Open();
-                cq.CommandText = "select id as 'Iid da Venda',idcliente as 'Id do Cliente',idfuncionarios as 'Id do Vendedor',formapagamento as 'Forma de Pagamento',valortotal = case when valortotal <= 1000 then  valortotal - (valortotal * 0.03) when valortotal > 1000 then valortotal - (valortotal * 0.05) else valortotal end from compra";
+                cq.CommandText = "select id as 'Id da Venda',idcliente as 'Id do Cliente',idfuncionarios as 'Id do Vendedor',formapagamento as 'Forma de Pagamento',valortotal = case when valortotal <= 1000 then  valortotal - (valortotal * 0.03) when valortotal > 1000 then valortotal - (valortotal * 0.05) else valortotal end from compra";
                 cq.Connection = cn;
                 SqlDataAdapter da = new SqlDataAdapter();
 
@@ -713,8 +704,9 @@ namespace clienteC
             {
                 try
                 {
+                    cn.Close();
+                    cn.Open();
 
-                   
                     string idproduto = txt_produtoID.Text;
                     string quantidade = txt_qtd.Text;
                     string valoritem = txt_valoritem.Text;
@@ -729,9 +721,10 @@ namespace clienteC
                     cq.Parameters.Add("@idproduto", System.Data.SqlDbType.Int).Value = idproduto;
                     cq.Parameters.Add("@idcompra", System.Data.SqlDbType.Int).Value = idcompra;
                     cq.Parameters.Add("@qtditem", System.Data.SqlDbType.Int).Value = quantidade;
-                    cq.Parameters.Add("@valoritem", System.Data.SqlDbType.Float).Value = valoritem;
+                    cq.Parameters.Add("@valoritem", System.Data.SqlDbType.Int).Value = valoritem;
 
-                   
+
+
                     cq.ExecuteNonQuery();
                     cq.Parameters.Clear();
 
@@ -763,9 +756,9 @@ namespace clienteC
                 cb_pacelas.Enabled = false;
 
                 string formapagamento = "Dinheiro";
-               
+                string id = dgv_compras.SelectedRows[0].Cells[0].Value.ToString();
 
-                string strSql = "insert into compra(formapagamento)values(@formapagamento)";
+                string strSql = "update compra set formapagamento = 'Dinheiro' from compra, cliente where compra.id like ('%" + idcompra + "%') ";
                 cq.Parameters.Add("@formapagamento", System.Data.SqlDbType.VarChar).Value = formapagamento;
                 cq.CommandText = strSql;
                 cq.Connection = cn;
@@ -774,7 +767,6 @@ namespace clienteC
              
                
 
-                cn.Open();
                 cq.ExecuteNonQuery();
                 cq.Parameters.Clear();
             }
@@ -788,15 +780,15 @@ namespace clienteC
         {
             if (cb_cartao.Checked)
             {
-
+                cn.Open();
                 btn_pagar.Enabled = true;
                 cb_dinheiro.Checked = false;
                 cb_pacelas.Enabled = true;
 
                 string formapagamento = "Cartão";
+                string id = dgv_compras.SelectedRows[0].Cells[0].Value.ToString();
 
-
-                string strSql = "insert into compra(formapagamento)values(@formapagamento)";
+                string strSql = "update compra set formapagamento = 'Cartão' from compra, cliente where compra.id like ('%" + idcompra + "%') ";
                 cq.Parameters.Add("@formapagamento", System.Data.SqlDbType.VarChar).Value = formapagamento;
                 cq.CommandText = strSql;
                 cq.Connection = cn;
@@ -805,7 +797,7 @@ namespace clienteC
 
 
 
-                cn.Open();
+             
                 cq.ExecuteNonQuery();
                 cq.Parameters.Clear();
 
@@ -827,7 +819,7 @@ namespace clienteC
         {
             txt_produtoID.Text = dgv_carrinho.SelectedRows[0].Cells[1].Value.ToString();
             txt_qtd.Text = dgv_carrinho.SelectedRows[0].Cells[3].Value.ToString();
-            txt_valoritem.Text = "R$ " + dgv_carrinho.SelectedRows[0].Cells[4].Value.ToString();
+            txt_valoritem.Text = dgv_carrinho.SelectedRows[0].Cells[4].Value.ToString();
             manipularDadosCarrinho();
             HabilitarCamposItem();
 
@@ -877,7 +869,8 @@ namespace clienteC
             cq.CommandText = strSql;
             
             cq.CommandType = CommandType.Text;
-            cq.Parameters.Add("@valoritem", System.Data.SqlDbType.Decimal).Value =decimal.Parse(valoritem);
+            cq.Parameters.Add("@valoritem", System.Data.SqlDbType.Int).Value =valoritem;
+            cq.Parameters.Clear();
             SqlDataAdapter da2 = new SqlDataAdapter();
             var ds2 = new DataSet();
             da2.SelectCommand = cq;
@@ -954,7 +947,7 @@ namespace clienteC
             {
                 int calculoValorItem = Convert.ToInt32(txt_valorunidade.Text) * Convert.ToInt32(txt_qtd.Value);
                 string calculoValorItemString = calculoValorItem.ToString();
-                txt_valoritem.Text = "R$ " + calculoValorItemString;
+                txt_valoritem.Text = calculoValorItemString; ;
             }
         }
 
@@ -1044,6 +1037,8 @@ namespace clienteC
                                   select (string)dr["nome"]).FirstOrDefault();
             cb_cliente.Text = nomeCliente;
             cn.Close();
+
+
         }
 
         private void txt_valoritem_TextChanged(object sender, EventArgs e)
