@@ -3,6 +3,7 @@
 ## Linguagem de Programação C#, usando SQL pelo Microsoft SQL Manager 18
 
 ###### Link Demostração Cadastrar Cliente: https://www.youtube.com/watch?v=VxEedqpYaBg&feature=emb_imp_woyt
+###### Link Demonstração Cadastrar Funcionário/Produto/Compra: https://www.youtube.com/watch?v=OS2pHzgasvo
 
 # Cadastrar Cliente/Funcionário
 
@@ -11,7 +12,7 @@
 ###### O id do Cliente e do Funcionário são gerados automaticamente pelo Banco de Dados, o mesmo vale para o salário do Funcionário.
 ###### Botão Salvar - Salva os dados cadastrais no banco de dados.
 ###### Ao salvar, os dados dos clientes e dos funcionários cadastrados serão exibidos no datagrid, e, ao clicar duas vezes em seus nomes, seus dados serão preenchidos nos campos
-###### de cadastro para a edição, ou exclusão dos mesmos utilizando os botões "Editar" e "Excluir" respectivamente.
+de cadastro para a edição, ou exclusão dos mesmos utilizando os botões "Editar" e "Excluir" respectivamente.
 
 #Cadastrar Produto 
 
@@ -19,7 +20,7 @@
 ###### O usuário irá inserir o nome, valor, quantidade, descrição, estoque mínimo e validade do produto.
 ###### Botão Salvar - Salva os dados cadastrais no banco de dados.
 ###### Ao salvar, os dados dos produtos cadastrados serão exibidos no datagrid, e, ao clicar duas vezes em seus nomes, seus dados serão preenchidos nos campos
-###### de cadastro para a edição, ou exclusão dos mesmos utilizando os botões "Editar" e "Excluir" respectivamente.
+de cadastro para a edição, ou exclusão dos mesmos utilizando os botões "Editar" e "Excluir" respectivamente.
 
 #Cadastrar Compra
 
