@@ -40,4 +40,8 @@
 
 # Relatórios
 
-###### No botão "Relatórios" vôce pode realizar algumas pesquisas como, clientes que realizaram compra; compras realizadas em período selecionado; produtos abaixo do estoque mínimo; folha de pagamento dos salários dos funcionários vendedores.
+###### No botão "Relatórios" vôce pode realizar algumas pesquisas como:
+###### Clientes que realizaram compra
+###### Compras realizadas em período selecionado
+###### Produtos abaixo do estoque mínimo
+###### Folha de pagamento dos salários dos funcionários vendedores.
