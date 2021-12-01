@@ -1,9 +1,11 @@
 # Trabalho-Engenharia-De-Software-II
 
 ## Linguagem de Programação C#, usando SQL pelo Microsoft SQL Manager 18
+###### Comandos para criação do banco de dados no arquivo 'SQLQuery.sql'
 
-###### Link Demostração Cadastrar Cliente: https://www.youtube.com/watch?v=VxEedqpYaBg&feature=emb_imp_woyt
-###### Link Demonstração Cadastrar Funcionário/Produto/Compra: https://www.youtube.com/watch?v=OS2pHzgasvo
+###### Link Demostração 1º Sprint: Cadastrar Cliente: https://www.youtube.com/watch?v=VxEedqpYaBg&feature=emb_imp_woyt
+###### Link Demonstração 2º Sprint: Cadastrar Funcionário/Produto/Compra: https://www.youtube.com/watch?v=OS2pHzgasvo
+###### Link Demonstração 3º Sprint: Relatórios: 
 
 # Cadastrar Cliente/Funcionário
 
@@ -33,3 +35,6 @@
 ###### Se o valor total da compra for menor que R$ 1000,00 o cliente terá um desconto de 3%, mas se o valor total da compra for maior do que R$1000,0 , o cliente terá um desconto de 5%. 
 ###### Se o total vendido pelos funcionários for maior do que R$10.000,00 , o mesmo ganhará uma comissão de 7%. Se for menor, 5%.
 
+#Relatórios
+
+###### No botão "Relatórios" vôce pode realizar algumas pesquisas como, clientes que realizaram compra; compras realizadas em período selecionado; produtos abaixo do estoque mínimo; folha de pagamento dos salários dos funcionários vendedores.
