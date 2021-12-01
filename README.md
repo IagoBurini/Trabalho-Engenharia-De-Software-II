@@ -16,7 +16,8 @@
 ###### Ao salvar, os dados dos clientes e dos funcionários cadastrados serão exibidos no datagrid, e, ao clicar duas vezes em seus nomes, seus dados serão preenchidos nos campos
 ###### de cadastro para a edição, ou exclusão dos mesmos utilizando os botões "Editar" e "Excluir" respectivamente.
 
-#Cadastrar Produto 
+
+# Cadastrar Produto 
 
 ###### Botão "Novo" - Habilita os campos para realizar o cadastro do Produto.
 ###### O usuário irá inserir o nome, valor, quantidade, descrição, estoque mínimo e validade do produto.
@@ -24,7 +25,8 @@
 ###### Ao salvar, os dados dos produtos cadastrados serão exibidos no datagrid, e, ao clicar duas vezes em seus nomes, seus dados serão preenchidos nos campos
 ###### de cadastro para a edição, ou exclusão dos mesmos utilizando os botões "Editar" e "Excluir" respectivamente.
 
-#Cadastrar Compra
+
+# Cadastrar Compra
 
 ###### Botão "Novo" - Habilita os campos para realizar o cadastro da Compra.
 ###### O usuário irá selecionar um dos funcionários cadastrados no banco de dados para estabelecer qual foi o responsável pela venda.
@@ -35,6 +37,7 @@
 ###### Se o valor total da compra for menor que R$ 1000,00 o cliente terá um desconto de 3%, mas se o valor total da compra for maior do que R$1000,0 , o cliente terá um desconto de 5%. 
 ###### Se o total vendido pelos funcionários for maior do que R$10.000,00 , o mesmo ganhará uma comissão de 7%. Se for menor, 5%.
 
-#Relatórios
+
+# Relatórios
 
 ###### No botão "Relatórios" vôce pode realizar algumas pesquisas como, clientes que realizaram compra; compras realizadas em período selecionado; produtos abaixo do estoque mínimo; folha de pagamento dos salários dos funcionários vendedores.
