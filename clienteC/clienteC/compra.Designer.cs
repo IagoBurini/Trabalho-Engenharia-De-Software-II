@@ -296,6 +296,7 @@ namespace clienteC
             this.cb_pacelas.Name = "cb_pacelas";
             this.cb_pacelas.Size = new System.Drawing.Size(90, 21);
             this.cb_pacelas.TabIndex = 25;
+            this.cb_pacelas.TextChanged += new System.EventHandler(this.cb_pacelas_TextChanged);
             // 
             // label9
             // 

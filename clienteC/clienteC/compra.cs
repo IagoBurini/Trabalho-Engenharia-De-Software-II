@@ -85,6 +85,38 @@ namespace clienteC
             cb_dinheiro.Enabled = true;
         }
 
+        private void cb_pacelas_TextChanged(object sender, EventArgs e)
+        {
+            cn.Close();
+            cn.Open();
+            string valoritem = txt_valoritem.Text;
+            cq.Connection = cn;
+            string strSql = "select sum(valoritem) from item where idcompra like ('%" + idcompra + "%')";
+            cq.CommandText = strSql;
+
+            cq.CommandType = CommandType.Text;
+            cq.Parameters.Add("@valoritem", System.Data.SqlDbType.Int).Value = valoritem;
+            cq.Parameters.Clear();
+            SqlDataAdapter da2 = new SqlDataAdapter();
+            var ds2 = new DataSet();
+            da2.SelectCommand = cq;
+            da2.Fill(ds2);
+            DataTable dtDatabases3 = ds2.Tables[0];
+            txt_valortotal.Text = ds2.Tables[0].Rows[0][0].ToString();
+            int valortotaltint = Convert.ToInt32(ds2.Tables[0].Rows[0][0]) ;
+            if (cb_pacelas.Text == "1")
+            {
+                txt_valortotal.Text = ds2.Tables[0].Rows[0][0].ToString();
+            }
+            else if (cb_pacelas.Text == "2")
+            {
+                txt_valortotal.Text = Convert.ToString(valortotaltint / 2);
+            }
+            else if (cb_pacelas.Text == "3")
+            {
+                txt_valortotal.Text = Convert.ToString(valortotaltint / 3);
+            }
+        }
         private void btn_pagar_Click(object sender, EventArgs e)
         {
 
@@ -108,7 +140,7 @@ namespace clienteC
                     cq.ExecuteNonQuery();
                     cq.Parameters.Clear();
 
-                    MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Sua Compra foi realizada com sucesso!. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 catch (Exception error)
@@ -178,7 +210,27 @@ namespace clienteC
 
         private void MostrarTodoCarrinho()
         {
+            try
+            {
+                cn.Close();
+                cn.Open();
+                cq.CommandText = "select item.[id] as 'ID Item', idproduto as 'ID Produto', idcompra as 'ID Compra', qtditem as 'Quantidade', valoritem as 'Valor' from item where idcompra like ('%" + idcompra + "%')";
+                cq.Connection = cn;
+                SqlDataAdapter da3 = new SqlDataAdapter();
 
+                DataTable dt3 = new DataTable();
+
+                da3.SelectCommand = cq;
+                da3.Fill(dt3);
+                dgv_carrinho.DataSource = dt3;
+                cn.Close();
+                //DgvFunc.DataSource = null;
+                //HabilitarCamposItem();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
 
@@ -343,7 +395,7 @@ namespace clienteC
             DesabilitaCamposC();
             DesabilitaCamposItem();
             MostrarTodasCompras();
-            MostrarTodoCarrinho();
+            //MostrarTodoCarrinho();
 
         }
 
@@ -565,30 +617,8 @@ namespace clienteC
             idcompra = dgv_compras.SelectedRows[0].Cells[0].Value.ToString();
             manipularDadosC();
 
-           
-            //////////////////////////////////////////////////////////////////////
-            ///
-            try
-            {
-                cn.Close();
-                cn.Open();
-                cq.CommandText = "select item.[id] as 'ID Item', idproduto as 'ID Produto', idcompra as 'ID Compra', qtditem as 'Quantidade', valoritem as 'Valor' from item where idcompra like ('%" + idcompra + "%')";
-                cq.Connection = cn;
-                SqlDataAdapter da3 = new SqlDataAdapter();
-
-                DataTable dt3 = new DataTable();
-
-                da3.SelectCommand = cq;
-                da3.Fill(dt3);
-                dgv_carrinho.DataSource = dt3;
-                cn.Close();
-                //DgvFunc.DataSource = null;
-                //HabilitarCamposItem();
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message);
-            }
+            HabilitarCamposItem();
+            MostrarTodoCarrinho();
         }
         private void dgv_compras_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -729,7 +759,6 @@ namespace clienteC
                     cq.Parameters.Clear();
 
                     MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MostrarTodasCompras();
                 }
 
                 catch (Exception error)
@@ -741,7 +770,7 @@ namespace clienteC
                 finally
                 {
                     cn.Close();
-                    MostrarTodasCompras();
+                    MostrarTodoCarrinho();
                 }
 
             }
@@ -755,6 +784,8 @@ namespace clienteC
                 cb_cartao.Checked = false;
                 cb_pacelas.Enabled = false;
 
+                cn.Close();
+                cn.Open();
                 string formapagamento = "Dinheiro";
                 string id = dgv_compras.SelectedRows[0].Cells[0].Value.ToString();
 
@@ -769,6 +800,7 @@ namespace clienteC
 
                 cq.ExecuteNonQuery();
                 cq.Parameters.Clear();
+                cn.Close();
             }
             else
             {
@@ -821,7 +853,6 @@ namespace clienteC
             txt_qtd.Text = dgv_carrinho.SelectedRows[0].Cells[3].Value.ToString();
             txt_valoritem.Text = dgv_carrinho.SelectedRows[0].Cells[4].Value.ToString();
             manipularDadosCarrinho();
-            HabilitarCamposItem();
 
             // PRODUTO LOGICA PARA MOSTRAR O NOME DO CLIENTE ATRAVES DO ID DELE
 
@@ -1045,5 +1076,7 @@ namespace clienteC
         {
 
         }
+
+        
     }
 }
