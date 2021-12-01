@@ -89,5 +89,10 @@ namespace clienteC
             relatorio1.BringToFront();
             button1.BringToFront();
         }
+
+        private void userControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

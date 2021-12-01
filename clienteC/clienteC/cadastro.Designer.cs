@@ -41,8 +41,8 @@
             this.userControl1 = new clienteC.UserControl1();
             this.relatorio1 = new clienteC.Relatorio();
             this.funcionario2 = new clienteC.funcionario();
-            this.compra2 = new clienteC.compra();
             this.userControl22 = new clienteC.UserControl2();
+            this.compra2 = new clienteC.compra();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.btnFechar.SuspendLayout();
@@ -180,6 +180,7 @@
             this.userControl1.Name = "userControl1";
             this.userControl1.Size = new System.Drawing.Size(800, 600);
             this.userControl1.TabIndex = 3;
+            this.userControl1.Load += new System.EventHandler(this.userControl1_Load);
             // 
             // relatorio1
             // 
@@ -197,14 +198,6 @@
             this.funcionario2.Size = new System.Drawing.Size(800, 600);
             this.funcionario2.TabIndex = 5;
             // 
-            // compra2
-            // 
-            this.compra2.BackColor = System.Drawing.Color.White;
-            this.compra2.Location = new System.Drawing.Point(0, 0);
-            this.compra2.Name = "compra2";
-            this.compra2.Size = new System.Drawing.Size(800, 600);
-            this.compra2.TabIndex = 4;
-            // 
             // userControl22
             // 
             this.userControl22.BackColor = System.Drawing.Color.White;
@@ -212,6 +205,14 @@
             this.userControl22.Name = "userControl22";
             this.userControl22.Size = new System.Drawing.Size(800, 600);
             this.userControl22.TabIndex = 6;
+            // 
+            // compra2
+            // 
+            this.compra2.BackColor = System.Drawing.Color.White;
+            this.compra2.Location = new System.Drawing.Point(0, 0);
+            this.compra2.Name = "compra2";
+            this.compra2.Size = new System.Drawing.Size(800, 600);
+            this.compra2.TabIndex = 4;
             // 
             // cadastro
             // 

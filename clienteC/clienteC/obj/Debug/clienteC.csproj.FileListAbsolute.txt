@@ -54,3 +54,4 @@ C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\cl
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.compra.resources
 C:\Users\Léo\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.compra.resources
 C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.Relatorio.resources
+C:\Users\Windows\Documents\GitHub\Trabalho-Engenharia-De-Software-II\clienteC\clienteC\obj\Debug\clienteC.csproj.AssemblyReference.cache
