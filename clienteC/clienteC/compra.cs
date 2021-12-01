@@ -17,7 +17,7 @@ namespace clienteC
             InitializeComponent();
         }
 
-        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-6MFH4M9\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
+        SqlConnection cn = new SqlConnection(@"Server=DESKTOP-89VMO42\SQLEXPRESS ;Database=trab ;User Id=sa ;Password = 12345; ");
         SqlCommand cq = new SqlCommand();
         string idcompra { get; set; }
 

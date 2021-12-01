@@ -84,6 +84,12 @@
     <Compile Include="UserControl2.Designer.cs">
       <DependentUpon>UserControl2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Relatorio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Relatorio.Designer.cs">
+      <DependentUpon>Relatorio.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="cadastro.resx">
       <DependentUpon>cadastro.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Relatorio.resx">
+      <DependentUpon>Relatorio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>

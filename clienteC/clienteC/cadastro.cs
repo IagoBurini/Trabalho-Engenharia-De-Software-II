@@ -48,8 +48,8 @@ namespace clienteC
 
         private void button2_Click(object sender, EventArgs e)
         {
-            userControl11.UserControl1_Load(sender, e);
-            userControl11.BringToFront();
+            userControl1.UserControl1_Load(sender, e);
+            userControl1.BringToFront();
             button1.BringToFront();
         }
 
@@ -60,8 +60,8 @@ namespace clienteC
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            funcionario1.funcionario_Load_1(sender, e);
-            funcionario1.BringToFront();
+            funcionario2.funcionario_Load_1(sender, e);
+            funcionario2.BringToFront();
             button1.BringToFront();
         }
 
@@ -72,15 +72,21 @@ namespace clienteC
 
         private void btnCadastrarProduto_Click(object sender, EventArgs e)
         {
-            userControl21.UserControl2_Load(sender, e);
-            userControl21.BringToFront();
+            userControl22.UserControl2_Load(sender, e);
+            userControl22.BringToFront();
             button1.BringToFront();
         }
 
         public void btn_cadastrarCompra_Click(object sender, EventArgs e)
         {
-            compra1.compra_Load(sender,e);
-            compra1.BringToFront();
+            compra2.compra_Load(sender,e);
+            compra2.BringToFront();
+            button1.BringToFront();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            relatorio1.BringToFront();
             button1.BringToFront();
         }
     }

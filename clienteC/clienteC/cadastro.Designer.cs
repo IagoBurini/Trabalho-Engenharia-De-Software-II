@@ -31,16 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.btn_cadastrarCompra = new System.Windows.Forms.Button();
             this.btnCadastrarProduto = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.userControl11 = new clienteC.UserControl1();
-            this.userControl21 = new clienteC.UserControl2();
-            this.funcionario1 = new clienteC.funcionario();
-            this.compra1 = new clienteC.compra();
+            this.userControl1 = new clienteC.UserControl1();
+            this.relatorio1 = new clienteC.Relatorio();
+            this.funcionario2 = new clienteC.funcionario();
+            this.compra2 = new clienteC.compra();
+            this.userControl22 = new clienteC.UserControl2();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.btnFechar.SuspendLayout();
@@ -53,6 +55,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.btn_cadastrarCompra);
             this.panel1.Controls.Add(this.btnCadastrarProduto);
             this.panel1.Controls.Add(this.button2);
@@ -63,6 +66,21 @@
             this.panel1.Size = new System.Drawing.Size(200, 600);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Impact", 12F);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(0, 440);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(200, 110);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Relatorios";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btn_cadastrarCompra
             // 
@@ -130,10 +148,11 @@
             // 
             this.btnFechar.BackColor = System.Drawing.Color.White;
             this.btnFechar.Controls.Add(this.button1);
-            this.btnFechar.Controls.Add(this.userControl11);
-            this.btnFechar.Controls.Add(this.userControl21);
-            this.btnFechar.Controls.Add(this.funcionario1);
-            this.btnFechar.Controls.Add(this.compra1);
+            this.btnFechar.Controls.Add(this.userControl1);
+            this.btnFechar.Controls.Add(this.relatorio1);
+            this.btnFechar.Controls.Add(this.funcionario2);
+            this.btnFechar.Controls.Add(this.userControl22);
+            this.btnFechar.Controls.Add(this.compra2);
             this.btnFechar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnFechar.Location = new System.Drawing.Point(200, 0);
             this.btnFechar.Name = "btnFechar";
@@ -154,38 +173,45 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // userControl11
+            // userControl1
             // 
-            this.userControl11.BackColor = System.Drawing.Color.White;
-            this.userControl11.Location = new System.Drawing.Point(0, 0);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(800, 600);
-            this.userControl11.TabIndex = 1;
-            this.userControl11.Load += new System.EventHandler(this.userControl11_Load);
+            this.userControl1.BackColor = System.Drawing.Color.White;
+            this.userControl1.Location = new System.Drawing.Point(0, 0);
+            this.userControl1.Name = "userControl1";
+            this.userControl1.Size = new System.Drawing.Size(800, 600);
+            this.userControl1.TabIndex = 3;
             // 
-            // userControl21
+            // relatorio1
             // 
-            this.userControl21.BackColor = System.Drawing.Color.White;
-            this.userControl21.Location = new System.Drawing.Point(0, 0);
-            this.userControl21.Name = "userControl21";
-            this.userControl21.Size = new System.Drawing.Size(800, 600);
-            this.userControl21.TabIndex = 3;
+            this.relatorio1.BackColor = System.Drawing.Color.White;
+            this.relatorio1.Location = new System.Drawing.Point(0, 0);
+            this.relatorio1.Name = "relatorio1";
+            this.relatorio1.Size = new System.Drawing.Size(800, 600);
+            this.relatorio1.TabIndex = 1;
             // 
-            // funcionario1
+            // funcionario2
             // 
-            this.funcionario1.BackColor = System.Drawing.Color.White;
-            this.funcionario1.Location = new System.Drawing.Point(0, 0);
-            this.funcionario1.Name = "funcionario1";
-            this.funcionario1.Size = new System.Drawing.Size(800, 600);
-            this.funcionario1.TabIndex = 2;
+            this.funcionario2.BackColor = System.Drawing.Color.White;
+            this.funcionario2.Location = new System.Drawing.Point(0, 0);
+            this.funcionario2.Name = "funcionario2";
+            this.funcionario2.Size = new System.Drawing.Size(800, 600);
+            this.funcionario2.TabIndex = 5;
             // 
-            // compra1
+            // compra2
             // 
-            this.compra1.BackColor = System.Drawing.Color.White;
-            this.compra1.Location = new System.Drawing.Point(0, 0);
-            this.compra1.Name = "compra1";
-            this.compra1.Size = new System.Drawing.Size(800, 600);
-            this.compra1.TabIndex = 4;
+            this.compra2.BackColor = System.Drawing.Color.White;
+            this.compra2.Location = new System.Drawing.Point(0, 0);
+            this.compra2.Name = "compra2";
+            this.compra2.Size = new System.Drawing.Size(800, 600);
+            this.compra2.TabIndex = 4;
+            // 
+            // userControl22
+            // 
+            this.userControl22.BackColor = System.Drawing.Color.White;
+            this.userControl22.Location = new System.Drawing.Point(0, 0);
+            this.userControl22.Name = "userControl22";
+            this.userControl22.Size = new System.Drawing.Size(800, 600);
+            this.userControl22.TabIndex = 6;
             // 
             // cadastro
             // 
@@ -218,5 +244,11 @@
         private UserControl2 userControl21;
         private System.Windows.Forms.Button btn_cadastrarCompra;
         private compra compra1;
+        private System.Windows.Forms.Button button3;
+        private Relatorio relatorio1;
+        private UserControl1 userControl1;
+        private funcionario funcionario2;
+        private compra compra2;
+        private UserControl2 userControl22;
     }
 }

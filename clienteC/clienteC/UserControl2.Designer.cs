@@ -186,7 +186,7 @@ namespace clienteC
             this.dgv_Mostrar.MultiSelect = false;
             this.dgv_Mostrar.Name = "dgv_Mostrar";
             this.dgv_Mostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Mostrar.Size = new System.Drawing.Size(365, 103);
+            this.dgv_Mostrar.Size = new System.Drawing.Size(530, 103);
             this.dgv_Mostrar.TabIndex = 14;
             this.dgv_Mostrar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Mostrar_CellContentClick);
             this.dgv_Mostrar.DoubleClick += new System.EventHandler(this.dgv_Mostrar_DoubleClick);
