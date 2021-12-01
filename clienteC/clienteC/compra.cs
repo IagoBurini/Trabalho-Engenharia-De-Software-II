@@ -744,7 +744,9 @@ namespace clienteC
 
 
                     string strSql = "insert into item(idproduto,idcompra,qtditem,valoritem)values(@idproduto, @idcompra, @qtditem, @valoritem)";
+                    string strSqlUpdate = "update produtos set qtd=(qtd - qtditem) from produtos, item where produtos.id like ('%" + idproduto + "%') ";
                     cq.CommandText = strSql;
+                    cq.CommandText = strSqlUpdate;
               
                     cq.Connection = cn;
                   
