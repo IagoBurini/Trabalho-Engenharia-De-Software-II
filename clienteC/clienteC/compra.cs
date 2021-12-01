@@ -128,7 +128,7 @@ namespace clienteC
                    
 
 
-                    string strSql = "update compra set valortotal = (select isnull(sum(valoritem), 0) from item where compra.id = item.idcompra) from compra";
+                    string strSql = "update compra set valortotal = (select isnull(sum(valoritem), 0) from item where compra.id = item.idcompra), pago='Sim' from compra where id like ('%" + idcompra + "%')";
 
                     cq.CommandText = strSql;
                     cq.Connection = cn;
@@ -190,7 +190,7 @@ namespace clienteC
             {
                 cn.Close();
                 cn.Open();
-                cq.CommandText = "select id as 'Id da Venda',idcliente as 'Id do Cliente',idfuncionarios as 'Id do Vendedor',formapagamento as 'Forma de Pagamento',valortotal = case when valortotal <= 1000 then  valortotal - (valortotal * 0.03) when valortotal > 1000 then valortotal - (valortotal * 0.05) else valortotal end, datacompra 'Data Da Compra' from compra";
+                cq.CommandText = "select id as 'Id da Venda',idcliente as 'Id do Cliente',idfuncionarios as 'Id do Vendedor',formapagamento as 'Forma de Pagamento', pago as 'Compra Paga ?',valortotal = case when valortotal <= 1000 then  valortotal - (valortotal * 0.03) when valortotal > 1000 then valortotal - (valortotal * 0.05) else valortotal end, datacompra 'Data Da Compra' from compra";
                 cq.Connection = cn;
                 SqlDataAdapter da = new SqlDataAdapter();
 
@@ -812,6 +812,7 @@ namespace clienteC
         {
             if (cb_cartao.Checked)
             {
+                cn.Close();
                 cn.Open();
                 btn_pagar.Enabled = true;
                 cb_dinheiro.Checked = false;
@@ -833,7 +834,7 @@ namespace clienteC
                 cq.ExecuteNonQuery();
                 cq.Parameters.Clear();
 
-               
+                cn.Close();
             }
             else
             {

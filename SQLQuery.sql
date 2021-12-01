@@ -44,6 +44,7 @@ idcliente int,
 idfuncionarios int,
 valortotal int,
 formapagamento varchar (40),
+pago varchar (4) default 'Não',
 datacompra date DEFAULT GETDATE()
 FOREIGN KEY (idcliente) REFERENCES cliente(id),
 FOREIGN KEY (idfuncionarios) REFERENCES funcionarios(id),
@@ -62,6 +63,7 @@ valoritem decimal,
 FOREIGN KEY (idcompra) REFERENCES compra(id),
 CONSTRAINT fk_idproduto FOREIGN KEY (idproduto) REFERENCES produtos(id),
 )
+
 
 select * from item
 
