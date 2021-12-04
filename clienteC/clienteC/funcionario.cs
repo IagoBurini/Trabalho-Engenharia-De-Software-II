@@ -129,7 +129,7 @@ namespace clienteC
                 MessageBox.Show("Obrigatório informar o campo endereço. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtEnderecoF.Focus();
             }
-            else if (txtTelefoneF.Text.Length < 14)
+            else if (txtTelefoneF.Text.Length < 13)
             {
                 MessageBox.Show("O número de Telefone está errado, Porfavor informar os 14 digitos. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTelefoneF.Focus();

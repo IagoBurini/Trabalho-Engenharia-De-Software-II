@@ -85,6 +85,7 @@ namespace clienteC
             this.cb_selecionar.Name = "cb_selecionar";
             this.cb_selecionar.Size = new System.Drawing.Size(773, 28);
             this.cb_selecionar.TabIndex = 9;
+            this.cb_selecionar.SelectedIndexChanged += new System.EventHandler(this.cb_selecionar_SelectedIndexChanged);
             this.cb_selecionar.TextUpdate += new System.EventHandler(this.cb_selecionar_TextUpdate);
             this.cb_selecionar.TextChanged += new System.EventHandler(this.cb_selecionar_TextChanged);
             // 

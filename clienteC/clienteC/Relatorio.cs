@@ -80,7 +80,7 @@ namespace clienteC
                 {
                     cn.Close();
                     cn.Open();
-                    cm.CommandText = "select id as 'ID Funcionario', nome as 'Nome do Funcionario', telefone as 'Telefone', cpf as 'CPF', salario as 'Salario Funcionario' from funcionarios";
+                    cm.CommandText = "select funcionarios.id as 'ID Funcionario', nome as 'Nome do Funcionario',sum(valortotal) as 'Total de Vendas', salario = case when sum(valortotal) <= 10000 then salario +(salario * 0.05) when sum(valortotal) > 10000 then salario +(salario * 0.07) else salario end from compra, funcionarios where compra.idfuncionarios = funcionarios.id group by funcionarios.id, nome, endereco,cpf,telefone, salario,valortotal";
                     cm.Connection = cn;
                     SqlDataAdapter da = new SqlDataAdapter();
 
@@ -178,6 +178,7 @@ namespace clienteC
                 dtp.Visible = false;
                 dtp_termino.Visible = false;
                 label2.Visible = false;
+                btn_pesquisar.Visible = false;
             }
         }
             private void cb_selecionar_TextChanged(object sender, EventArgs e)
@@ -201,6 +202,11 @@ namespace clienteC
         private void btn_pesquisar_Click(object sender, EventArgs e)
         {
             ComprasRealizadasEmPeriodo();
+        }
+
+        private void cb_selecionar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

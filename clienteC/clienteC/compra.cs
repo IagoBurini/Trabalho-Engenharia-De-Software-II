@@ -124,7 +124,8 @@ namespace clienteC
             
                 try
                 {
-                    string valortotal = txt_valortotal.Text;
+                cn.Open();
+                string valortotal = txt_valortotal.Text;
                    
 
 
@@ -743,11 +744,9 @@ namespace clienteC
 
 
 
-                    string strSql = "insert into item(idproduto,idcompra,qtditem,valoritem)values(@idproduto, @idcompra, @qtditem, @valoritem)";
-                    string strSqlUpdate = "update produtos set qtd=(qtd - qtditem) from produtos, item where produtos.id like ('%" + idproduto + "%') ";
+                    string strSql = "BEGIN insert into item(idproduto,idcompra,qtditem,valoritem)values(@idproduto, @idcompra, @qtditem, @valoritem); update produtos set qtd=(qtd - qtditem) from produtos, item where produtos.id like ('%" + idproduto + "%') END ";
                     cq.CommandText = strSql;
-                    cq.CommandText = strSqlUpdate;
-              
+
                     cq.Connection = cn;
                   
                     cq.Parameters.Add("@idproduto", System.Data.SqlDbType.Int).Value = idproduto;
@@ -761,6 +760,7 @@ namespace clienteC
                     cq.Parameters.Clear();
 
                     MessageBox.Show("Os dados foram salvos com sucesso. ", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cn.Close();
                 }
 
                 catch (Exception error)
